@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import axios from "axios";
-import { json, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import api from "../api/api"
 import Server from "../Utils/config";
 const Write = () => {
@@ -12,7 +11,6 @@ const Write = () => {
   const [title, setTitle] = useState(state?.Title || "");
   const [head, setHead] = useState(state?.Head || "");
   const [cn, setCn] = useState(state?.Cn || "");
-  const [file, setFile] = useState(null);
   const [cat, setCat] = useState(state?.cat || "");
   const [subcat, setSubcat] = useState(state?.subcat || "");
  
@@ -32,16 +30,16 @@ const Write = () => {
   },[items])
   const navigate = useNavigate()
 
-  const upload = async () => {
-    try {
-      const formData = new FormData();
-      formData.append("file", file);
-      const res = await axios.post("/upload", formData);
-      return res.data;
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  // const upload = async () => {
+  //   try {
+  //     const formData = new FormData();
+  //     formData.append("file", file);
+  //     const res = await axios.post("/upload", formData);
+  //     return res.data;
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 
   const handleClick = async (e) => {
     e.preventDefault();

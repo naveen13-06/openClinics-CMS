@@ -43,15 +43,8 @@
     ]
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/naveen13-06/OpenClinics-cms.git"
-  },
+  "main": "src/index.js",
   "author": "naveen",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/naveen13-06/OpenClinics-cms/issues"
-  },
-  "homepage": "https://github.com/naveen13-06/OpenClinics-cms#readme"
+  "devDependencies": {}
 }
