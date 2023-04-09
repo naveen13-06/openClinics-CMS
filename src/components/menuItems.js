@@ -74,6 +74,10 @@ const menuItems = [
       title: 'Surgery',
       submenu: [
         {
+          title: 'Breast',
+          url: '/?domain=surgery&type=breast',
+        },
+        {
           title: 'Varicose vein',
           url: '/?domain=surgery&type=varicose_vein',
         },

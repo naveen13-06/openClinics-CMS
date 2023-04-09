@@ -11,22 +11,24 @@ const Write = () => {
   const [title, setTitle] = useState(state?.Title || "");
   const [head, setHead] = useState(state?.Head || "");
   const [cn, setCn] = useState(state?.Cn || "");
-  const [cat, setCat] = useState(state?.cat || "");
-  const [subcat, setSubcat] = useState(state?.subcat || "");
+  const [cat, setCat] = useState(state?.cat || "Medicine");
+  const [subcat, setSubcat] = useState(state?.subcat || "abdomen");
  
   const med=["abdomen","cns","cvs","renal","rs"];
   const og=["obstetric","gynaecology"];
   const pediatrics=["abdomen","cns","cvs","anthropometry","RS","Newborn","HeadtoFoot"];
   const surgery=["breast","Varicose_vein","swelling","ulcer","abdomen","hernia","peripheral_arterial_disease"];
   const [items,setItems]=useState(med);
-  useEffect(()=>{ 
+  useEffect(()=>{
     if(cat==="Medicine") setItems(med);
     else if(cat==="Og") setItems(og);
     else if(cat==="Pediatrics") setItems(pediatrics);
     else if(cat==="Surgery") setItems(surgery);
+    
   },[cat])
   useEffect(()=>{
     setSubcat(items[0]);
+    
   },[items])
   const navigate = useNavigate()
 
@@ -50,7 +52,6 @@ const Write = () => {
       Desc:value
     }
     try {
-      
       const res=await api.listDocuments(Server.databaseID,cat,subcat);
       const prevCards=res.documents[0].Cards;
       if(prevCards[cn-1]!=null){
@@ -122,7 +123,7 @@ const Write = () => {
               </label>
               <label>
               Types of Examination
-              <select value={subcat} onChange={(e) => setSubcat(e.target.value)}>
+              <select value={subcat} onChange={(e) => {setSubcat(e.target.value)}}>
                 {items.map((item,index) => (
                   <option key={index} value={item}>{item}</option>
                 ))}
