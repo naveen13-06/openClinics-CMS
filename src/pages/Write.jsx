@@ -49,22 +49,23 @@ const Write = () => {
   const [cn, setCn] = useState(state?.cn || "");
   const [cat, setCat] = useState(state?.cat || "Medicine");
   const [subcat, setSubcat] = useState(state?.subcat || "abdomen");
-//  console.log(state);
+// console.log(state?.subcat);
   const med=["abdomen","cns","cvs","renal","rs"];
   const og=["obstetric","gynaecology"];
-  const pediatrics=["abdomen","cns","cvs","anthropometry","RS","Newborn","HeadtoFoot"];
-  const surgery=["breast","Varicose_vein","swelling","ulcer","abdomen","hernia","peripheral_arterial_disease"];
+  const pediatrics=["abdomen","cns","cvs","anthropometry","rs","newborn","headtofoot"];
+  const surgery=["breast","varicose_vein","swelling","ulcer","abdomen","hernia","peripheral_arterial_disease"];
   const [items,setItems]=useState(med);
   useEffect(()=>{
-    if(cat==="Medicine") setItems(med);
-    else if(cat==="Og") setItems(og);
-    else if(cat==="Pediatrics") setItems(pediatrics);
-    else if(cat==="Surgery") setItems(surgery);
-    
+    if(cat==="medicine") setItems(med);
+    else if(cat==="og") setItems(og);
+    else if(cat==="pediatrics") setItems(pediatrics);
+    else if(cat==="surgery") setItems(surgery);
   },[cat])
   useEffect(()=>{
-    setSubcat(items[0]);
-    
+    console.log(subcat);
+  },[subcat])
+  useEffect(()=>{
+    if(!state.subcat)setSubcat(items[0]);
   },[items])
   const navigate = useNavigate()
 
@@ -149,14 +150,14 @@ const Write = () => {
               Subject
 
               <select value={cat} onChange={(e) => {setCat(e.target.value)}}>
+              {/* {console.log(cat==='Og')} */}
+                <option value="medicine" selected={cat===value} >Medicine</option>
 
-                <option value="Medicine">Medicine</option>
+                <option value="og" selected={cat===value}>OG</option>
 
-                <option value="Og">OG</option>
+                <option value="pediatrics" selected={cat===value}>Pediatrics</option>
 
-                <option value="Pediatrics">Pediatrics</option>
-
-                <option value="Surgery">Surgery</option>
+                <option value="surgery" selected={cat===value}>Surgery</option>
 
               </select>
               </label>
@@ -164,7 +165,9 @@ const Write = () => {
               Types of Examination
               <select value={subcat} onChange={(e) => {setSubcat(e.target.value)}}>
                 {items.map((item,index) => (
-                  <option key={index} value={item}>{item}</option>
+                  (
+                    <option key={index} value={item} selected={subcat === value}>{item}</option>
+                  )
                 ))}
               </select>
               </label>

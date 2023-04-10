@@ -25,7 +25,7 @@ const Single = () => {
     const fetchData = async () => {
       try {
         const res = await api.getCard(Server.databaseID,Server.collectionID,cat,type,postId)
-        console.log(res);
+        // console.log(res);
         setPost((prev)=>{return {...prev,...JSON.parse(res)}});
       } catch (err) {
         console.log(err);
