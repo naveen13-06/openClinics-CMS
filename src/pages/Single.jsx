@@ -24,8 +24,8 @@ const Single = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await api.getCard(Server.databaseID,cat,type,postId)
-        console.log(JSON.parse(res));
+        const res = await api.getCard(Server.databaseID,Server.collectionID,cat,type,postId)
+        console.log(res);
         setPost((prev)=>{return {...prev,...JSON.parse(res)}});
       } catch (err) {
         console.log(err);
@@ -36,7 +36,7 @@ const Single = () => {
 
   const handleDelete = async ()=>{
       try {
-        await api.deleteCard(Server.databaseID,cat,type,postId);
+        await api.deleteCard(Server.databaseID,Server.collectionID,cat,type,postId);
         navigate("/")
       } catch (err) {
         console.log(err);
@@ -51,9 +51,8 @@ const Single = () => {
   return (
     <div className="single">
       <div className="content">
-        <img src={`../upload/${post?.img}`} alt="" />
         <div className="user">
-          {console.log(post)}
+          
           <div className="info">
             <span>{post.username}</span>
             <p>Posted {moment(post.date).fromNow()}</p>
@@ -67,10 +66,10 @@ const Single = () => {
             </div>
          
         </div>
-        <h1>{post.Title}</h1>
+        <h1>{post.title}</h1>
         <p
           dangerouslySetInnerHTML={{
-            __html: DOMPurify.sanitize(post.Desc),
+            __html: DOMPurify.sanitize(post.desc),
           }}
         ></p>      </div>
       <Menu props={[cat,type]}/>

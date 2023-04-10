@@ -10,8 +10,8 @@ const Menu = ({props}) => {
     const fetchData = async () => {
       try {
         console.log(cat);
-        const res = await api.listDocuments(Server.databaseID,cat,type);
-        res.documents[0].Cards.map((card)=>{
+        const res = await api.listDocuments(Server.databaseID,Server.collectionID,cat,type);
+        res.documents[0].cards.slice(0,3).map((card)=>{
           if(card!=null) setPosts((prev)=>{return [...prev,JSON.parse(card)]});
         })
       } catch (err) {
@@ -26,9 +26,9 @@ const Menu = ({props}) => {
     <div className="menu">
       <h1>Other posts you may like</h1>
       {posts.map((post) => (
-        <div className="post" key={post.Cn}>
-          <h2>{post.Title}</h2>
-          <Link className="link" to={`/post/${cat}/${type}/${post.Cn}`}>
+        <div className="post" key={post.cn}>
+          <h2>{post.title}</h2>
+          <Link className="link" to={`/post/${cat}/${type}/${post.cn}`}>
                   <button>Read More</button>
           </Link>
         </div>

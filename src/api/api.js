@@ -50,34 +50,76 @@ let api = {
     return api.provider().database.createDocument(databaseId,'Surgery','unique()',data);
   },
 
-  listDocuments: (databaseId,cat,id=null) => {
-    // console.log(cat);
+  listDocuments: (databaseId,collectionId,cat,id=null) => {
+    //console.log(cat);
     if(id){
-      // console.log(id);
-      return api.provider().database.listDocuments(databaseId,cat,
-        [Query.equal('$id',id)]);
+      return api.provider().database.listDocuments(databaseId,collectionId,
+        [Query.equal('type',id)],[Query.equal('subjectName',cat)] );
     }
-    
-    return api.provider().database.listDocuments(databaseId,cat);
+    if(cat){
+      // console.log(collectionId);
+    return api.provider().database.listDocuments(databaseId,collectionId
+      ,[Query.equal('subjectName',cat)]); 
+    }
+    return null;
   },
-  getCard: async(databaseId,cat,type,cn) => {
-    const res= await api.provider().database.listDocuments(databaseId,cat,
-      [Query.equal('$id',type)]);
-    return res.documents[0].Cards[cn-1];
+  getCard: async(databaseId,collectionID,cat,type,cn) => {
+    const res= await api.provider().database.listDocuments(databaseId,collectionID,
+      [Query.equal('type',type)],[Query.equal('subjectName',cat)]);
+    const ans=res.documents[0].cards.filter((card)=>{
+      const data=JSON.parse(card);
+      return data.cn==cn
+    });
+    // console.log(ans);
+    return ans
   },
-  updateDocument: (databaseId, collectionId,did, data) => {
+  updateDocument: async(databaseId, collectionId,cat,id,data) => {
     console.log(data);
+    const res=await api.provider().database.listDocuments(databaseId,collectionId,
+      [Query.equal('type',id)],[Query.equal('subjectName',cat)] );
+    if(res.documents.length==0){
+      return api.provider().database.createDocument(databaseId,collectionId,'unique()',{type:id,subjectName:cat,cards:[JSON.stringify(data)]});
+    }
+    else{
+      let prevCards=res.documents[0].cards;
+      const isPresent=prevCards.filter((card)=>{
+        const d=JSON.parse(card);
+        return d.cn==data.cn;
+      });
+      if(isPresent.length>0){
+        if(!window.confirm("Do you want to update the card?")){
+          return null;
+        }
+        else{
+          await api.deleteCard(databaseId,collectionId,cat,id,data.cn);
+          const second=await api.provider().database.listDocuments(databaseId,collectionId,
+            [Query.equal('type',id)],[Query.equal('subjectName',cat)] );
+          prevCards=second.documents[0].cards;
+        }
+      }
+      prevCards.push(JSON.stringify(data));
+      const result={cards:prevCards};
+      const did=res.documents[0].$id;
     return api
       .provider()
-      .database.updateDocument(databaseId, collectionId,did,data);
+      .database.updateDocument(databaseId, collectionId,did,result);
+    }
+      // const prevCards=res.documents[0].cards;
+    
   },
-  deleteCard:async(databaseId,cat,did,pid) => {
-    const res= await api.provider().database.listDocuments(databaseId,cat,
-      [Query.equal('$id',did)]);
-    const card=res.documents[0].Cards;
-    card[pid-1]=null;
-    const data={Cards:card};
-    return api.provider().database.updateDocument(databaseId,cat,did,data);
+  deleteCard:async(databaseId,collectionID,cat,did,pid) => {
+    console.log(cat,did,pid);
+    const res= await api.provider().database.listDocuments(databaseId,collectionID,
+      [Query.equal('type',did)],[Query.equal('subjectName',cat)]);
+      // console.log(res);
+    const removed=res.documents[0].cards.filter((card)=>{
+      const data=JSON.parse(card);
+      return data.cn!=pid;
+    })
+    const id=res.documents[0].$id;
+    const data={cards:removed};
+    // console.log(data);
+    return api.provider().database.updateDocument(databaseId,collectionID,id,data);
   },
 };
 

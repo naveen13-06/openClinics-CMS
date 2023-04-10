@@ -4,16 +4,52 @@ import "react-quill/dist/quill.snow.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import api from "../api/api"
 import Server from "../Utils/config";
+import { useMemo, useRef } from "react";
+
+
+// const imageHandler = (a) => {
+//   const input = document.createElement("input");
+//   input.setAttribute("type", "file");
+//   input.setAttribute("accept", "image/*");
+//   input.click();
+
+//   input.onchange = () => {
+//       const file = input.files[0];
+//       if (/^image\//.test(file.type)) {
+//           saveToServer(file);
+//       } else {
+//           console.warn("You could only upload images.");
+//       }
+//   };
+// };
+    
 const Write = () => {
   // console.log(useLocation());
+  // const editorRef = useRef(null);
+  //   const modules = useMemo(() => ({
+  //       toolbar: {
+  //           container: [
+  //             [{ 'header': [1, 2, 3, 4, 5, 6, false] }],  
+  //             ['bold', 'italic', 'underline'],  
+  //             [{ 'list': 'ordered' }, { 'list': 'bullet' }],  
+  //             [{ 'align': [] }],  
+  //             ['link', 'image'],  
+  //             ['clean'],  
+  //             [{ 'color': [] }]  
+  //           ],
+  //           handlers: {
+  //               image: imageHandler,
+  //           },
+  //       },
+  //   }));
   const state = useLocation().state;
-  const [value, setValue] = useState(state?.Desc || "");
-  const [title, setTitle] = useState(state?.Title || "");
-  const [head, setHead] = useState(state?.Head || "");
-  const [cn, setCn] = useState(state?.Cn || "");
+  const [value, setValue] = useState(state?.desc || "");
+  const [title, setTitle] = useState(state?.title || "");
+  const [head, setHead] = useState(state?.head || "");
+  const [cn, setCn] = useState(state?.cn || "");
   const [cat, setCat] = useState(state?.cat || "Medicine");
   const [subcat, setSubcat] = useState(state?.subcat || "abdomen");
- 
+//  console.log(state);
   const med=["abdomen","cns","cvs","renal","rs"];
   const og=["obstetric","gynaecology"];
   const pediatrics=["abdomen","cns","cvs","anthropometry","RS","Newborn","HeadtoFoot"];
@@ -42,29 +78,30 @@ const Write = () => {
   //     console.log(err);
   //   }
   // };
-
+ 
   const handleClick = async (e) => {
     e.preventDefault();
     const cards={
-      Cn:cn,
-      Head:head,
-      Title:title,
-      Desc:value
+      cn:cn,
+      head:head,
+      title:title,
+      desc:value
     }
     try {
-      const res=await api.listDocuments(Server.databaseID,cat,subcat);
-      const prevCards=res.documents[0].Cards;
-      if(prevCards[cn-1]!=null){
-        if(!window.confirm(`Are you sure you want to override the data present in the card number ${cn}`)){
-          return;
-        }
-      }
-      prevCards[cn-1]=JSON.stringify(cards);
-      const data={
-        Cards:prevCards
-      }
-      console.log(data);
-      await api.updateDocument(Server.databaseID,cat,subcat,data)
+      // const res=await api.listDocuments(Server.databaseID,Server.collectionID,cat,subcat);
+      // const prevCards=res.documents[0].cards;
+      // // if(prevCards[cn-1]!=null){
+      // //   if(!window.confirm(`Are you sure you want to override the data present in the card number ${cn}`)){
+      // //     return;
+      // //   }
+      // // }
+      // prevCards[cn-1]=JSON.stringify(cards);
+      // const data={
+      //   cards:prevCards
+      // }
+      // console.log(data);
+      const res=await api.updateDocument(Server.databaseID,Server.collectionID,cat,subcat,cards)
+      if(res==null) return;
       navigate("/")
     } catch (err) {
       console.log(err);
@@ -96,6 +133,8 @@ const Write = () => {
           <ReactQuill
             className="editor"
             theme="snow"
+            // modules={modules}
+            // forwardedRef={editorRef}
             value={value}
             onChange={setValue}
           />

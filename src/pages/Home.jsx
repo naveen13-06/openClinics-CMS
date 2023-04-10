@@ -14,14 +14,14 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res =await api.listDocuments(Server.databaseID,cat,type);
+        const res =await api.listDocuments(Server.databaseID,Server.collectionID,cat,type);
         console.log(res);
-        res.documents[0].Cards.map((card)=>{
+        res.documents[0].cards.map((card)=>{
           if(card!=null) setPosts((prev)=>{return [...prev,JSON.parse(card)]});
         })
         // res.documents.map((types) =>{
-        //   if(types.Cards.length!=0){
-        //     types.Cards.map((cards) =>{
+        //   if(types.cards.length!=0){
+        //     types.cards.map((cards) =>{
         //       console.log(JSON.parse(cards));
         //       setPosts((prev)=>{return [...prev,JSON.parse(cards)]});
         //     })
@@ -45,17 +45,17 @@ const Home = () => {
     <div className="home">
       <div className="posts">
         {posts.map((post) => (
-          <div className="post" key={post.Cn}>
+          <div className="post" key={post.cn}>
             <div className="img">
               
             </div>
             <div className="content">
-              <h3>Card Number {post.Cn}</h3>
-              <Link className="link" to={`/post/${cat}/${type}/${post.Cn}`}>
-                <h1>{post.Title}</h1>
+              <h3>Card Number {post.cn}</h3>
+              <Link className="link" to={`/post/${cat}/${type}/${post.cn}`}>
+                <h1>{post.title}</h1>
               </Link>
-              <p>{getText(post.Desc)}</p>
-              <Link className="link" to={`/post/${cat}/${type}/${post.Cn}`}>
+              <p>{getText(post.desc)}</p>
+              <Link className="link" to={`/post/${cat}/${type}/${post.cn}`}>
                   <button>Read More</button>
               </Link>
             </div>
