@@ -62,10 +62,7 @@ const Write = () => {
     else if(cat==="surgery") setItems(surgery);
   },[cat])
   useEffect(()=>{
-    console.log(subcat);
-  },[subcat])
-  useEffect(()=>{
-    if(!state.subcat)setSubcat(items[0]);
+    if(!state?.subcat)setSubcat(items[0]);
   },[items])
   const navigate = useNavigate()
 
