@@ -1,4 +1,4 @@
-import { Client as Appwrite, Databases, Account,Query } from "appwrite";
+import { Client as Appwrite, Databases, Account,Query,Storage } from "appwrite";
 import { json } from "react-router-dom";
 import Server from "../Utils/config";
 
@@ -13,7 +13,8 @@ let api = {
     
     const account = new Account(appwrite);
     const database = new Databases(appwrite);
-    api.sdk = {database, account };
+    const storage = new Storage(appwrite);
+    api.sdk = {database, account,storage};
     return api.sdk;
   },
 
@@ -45,16 +46,16 @@ let api = {
     console.log(email.name);
     return api.provider().account.deleteSession("current");
   },
-  createDocument: (databaseId,collectionId,data) => {
-    console.log(data);
-    return api.provider().database.createDocument(databaseId,'Surgery','unique()',data);
-  },
+  // createDocument: (databaseId,collectionId,data) => {
+  //   console.log(data);
+  //   return api.provider().database.createDocument(databaseId,'Surgery','unique()',data);
+  // },
 
   listDocuments: (databaseId,collectionId,cat,id=null) => {
     //console.log(cat);
     if(id){
       return api.provider().database.listDocuments(databaseId,collectionId,
-        [Query.equal('type',id)],[Query.equal('subjectName',cat)] );
+        [Query.equal('examinationName',id)],[Query.equal('subjectName',cat)] );
     }
     if(cat){
       // console.log(collectionId);
@@ -65,7 +66,7 @@ let api = {
   },
   getCard: async(databaseId,collectionID,cat,type,cn) => {
     const res= await api.provider().database.listDocuments(databaseId,collectionID,
-      [Query.equal('type',type)],[Query.equal('subjectName',cat)]);
+      [Query.equal('examinationName',type)],[Query.equal('subjectName',cat)]);
     const ans=res.documents[0].cards.filter((card)=>{
       const data=JSON.parse(card);
       return data.cn==cn
@@ -76,9 +77,9 @@ let api = {
   updateDocument: async(databaseId, collectionId,cat,id,data) => {
     console.log(data);
     const res=await api.provider().database.listDocuments(databaseId,collectionId,
-      [Query.equal('type',id)],[Query.equal('subjectName',cat)] );
+      [Query.equal('examinationName',id)],[Query.equal('subjectName',cat)] );
     if(res.documents.length==0){
-      return api.provider().database.createDocument(databaseId,collectionId,'unique()',{type:id,subjectName:cat,cards:[JSON.stringify(data)]});
+      return api.provider().database.createDocument(databaseId,collectionId,'unique()',{examinationName:id,subjectName:cat,cards:[JSON.stringify(data)]});
     }
     else{
       let prevCards=res.documents[0].cards;
@@ -93,7 +94,7 @@ let api = {
         else{
           await api.deleteCard(databaseId,collectionId,cat,id,data.cn);
           const second=await api.provider().database.listDocuments(databaseId,collectionId,
-            [Query.equal('type',id)],[Query.equal('subjectName',cat)] );
+            [Query.equal('examinationName',id)],[Query.equal('subjectName',cat)] );
           prevCards=second.documents[0].cards;
         }
       }
@@ -110,7 +111,7 @@ let api = {
   deleteCard:async(databaseId,collectionID,cat,did,pid) => {
     console.log(cat,did,pid);
     const res= await api.provider().database.listDocuments(databaseId,collectionID,
-      [Query.equal('type',did)],[Query.equal('subjectName',cat)]);
+      [Query.equal('examinationName',did)],[Query.equal('subjectName',cat)]);
       // console.log(res);
     const removed=res.documents[0].cards.filter((card)=>{
       const data=JSON.parse(card);
@@ -121,6 +122,13 @@ let api = {
     // console.log(data);
     return api.provider().database.updateDocument(databaseId,collectionID,id,data);
   },
+  uploadMedia:async(databaseId,collectionID,fd) => {
+   console.log(fd);
+    return await api.provider().storage.createFile('64343c0ac11d44d86300','unique()',fd);
+  },
+  showfile:async(bid,fileId) => {
+    return await api.provider().storage.getFilePreview(bid,fileId,'10','10');
+  }
 };
 
 export default api;

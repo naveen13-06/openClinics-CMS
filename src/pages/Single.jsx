@@ -47,6 +47,17 @@ const Single = () => {
     const doc = new DOMParser().parseFromString(html, "text/html")
     return doc.body.textContent
   }
+  const showimg = async() =>{
+    try{
+      const res=await api.showfile(Server.bucketID,'64343fabbf828549e28c');
+      console.log(res.href)
+      return res.href;
+    }
+    catch(err){
+      console.log(err);
+    }
+    return null;
+  }
 
   return (
     <div className="single">
@@ -63,9 +74,11 @@ const Single = () => {
                 <img src={Edit} alt="" />
               </Link>
               <img onClick={()=>{ if (window.confirm('Are you sure you wish to delete this item?'))handleDelete() }} src={Delete} alt="" />
+              
             </div>
          
         </div>
+        
         <h1>{post.title}</h1>
         <p
           dangerouslySetInnerHTML={{
@@ -73,6 +86,7 @@ const Single = () => {
           }}
         ></p>      </div>
       <Menu props={[cat,type]}/>
+      <img src='http://appwrite.open-clinics-cms.live/v1/storage/buckets/64343c0ac11d44d86300/files/64343fabbf828549e28c/preview?width=200&height=200&project=642d6c3be181312b0360' alt="img" />
     </div>
   );
 };

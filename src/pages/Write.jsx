@@ -7,41 +7,65 @@ import Server from "../Utils/config";
 import { useMemo, useRef } from "react";
 
 
-// const imageHandler = (a) => {
-//   const input = document.createElement("input");
-//   input.setAttribute("type", "file");
-//   input.setAttribute("accept", "image/*");
-//   input.click();
 
-//   input.onchange = () => {
-//       const file = input.files[0];
-//       if (/^image\//.test(file.type)) {
-//           saveToServer(file);
-//       } else {
-//           console.warn("You could only upload images.");
-//       }
-//   };
-// };
+function  saveToServer(file) {
+  const fd = new FormData();
+  fd.append("upload", file);
+  const res=api.uploadMedia(Server.databaseID,Server.collectionID,fd);
+  // const xhr = new XMLHttpRequest();
+  // xhr.open("POST", "/api/media", true);
+  // xhr.onload = () => {
+  //     if (xhr.status === 201) {
+  //         // this is callback data: url
+  //         const url = JSON.parse(xhr.responseText).url;
+  //         insertToEditor(url);
+  //     }
+  // };
+  // xhr.send(fd);
+}
     
 const Write = () => {
-  // console.log(useLocation());
-  // const editorRef = useRef(null);
-  //   const modules = useMemo(() => ({
-  //       toolbar: {
-  //           container: [
-  //             [{ 'header': [1, 2, 3, 4, 5, 6, false] }],  
-  //             ['bold', 'italic', 'underline'],  
-  //             [{ 'list': 'ordered' }, { 'list': 'bullet' }],  
-  //             [{ 'align': [] }],  
-  //             ['link', 'image'],  
-  //             ['clean'],  
-  //             [{ 'color': [] }]  
-  //           ],
-  //           handlers: {
-  //               image: imageHandler,
-  //           },
-  //       },
-  //   }));
+  //console.log(useLocation());
+  const editorRef = useRef(null);
+  // var quillObj = null;
+  const imageHandler = (a) => {
+    const input = document.createElement("input");
+    input.setAttribute("type", "file");
+    input.setAttribute("accept", "image/*");
+    input.click();
+    input.onchange = async () => {
+        const file = input.files[0];
+        if (/^image\//.test(file.type)) {
+          //const url=await api.uploadMedia(Server.databaseID,Server.collectionID,input.files[0]);
+          console.log(editorRef.current);
+          // const range = quillObj.getEditorSelection();  
+          // console.log(range);
+          //     // var res = siteUrl + "/" + listName + "/" + filename;  
+  
+          // quillObj.getEditor().insertEmbed(null, 'image','http://appwrite.open-clinics-cms.live/v1/storage/buckets/64343c0ac11d44d86300/files/64343fabbf828549e28c/preview?width=200&height=200&project=642d6c3be181312b0360'); 
+          editorRef.current.getEditor().insertEmbed(null, "image", 'http://appwrite.open-clinics-cms.live/v1/storage/buckets/64343c0ac11d44d86300/files/64343fabbf828549e28c/preview?width=200&height=200&project=642d6c3be181312b0360');
+          // console.log(url);
+        } else {
+            console.warn("You could only upload images.");
+        }
+    };
+  };
+    const modules = useMemo(() => ({
+        toolbar: {
+            container: [
+              [{ 'header': [1, 2, 3, 4, 5, 6, false] }],  
+              ['bold', 'italic', 'underline'],  
+              [{ 'list': 'ordered' }, { 'list': 'bullet' }],  
+              [{ 'align': [] }],  
+              ['link', 'image'],  
+              ['clean'],  
+              [{ 'color': [] }]  
+            ],
+            handlers: {
+                image: imageHandler,
+            },
+        },
+    }));
   const state = useLocation().state;
   const [value, setValue] = useState(state?.desc || "");
   const [title, setTitle] = useState(state?.title || "");
@@ -86,18 +110,7 @@ const Write = () => {
       desc:value
     }
     try {
-      // const res=await api.listDocuments(Server.databaseID,Server.collectionID,cat,subcat);
-      // const prevCards=res.documents[0].cards;
-      // // if(prevCards[cn-1]!=null){
-      // //   if(!window.confirm(`Are you sure you want to override the data present in the card number ${cn}`)){
-      // //     return;
-      // //   }
-      // // }
-      // prevCards[cn-1]=JSON.stringify(cards);
-      // const data={
-      //   cards:prevCards
-      // }
-      // console.log(data);
+     
       const res=await api.updateDocument(Server.databaseID,Server.collectionID,cat,subcat,cards)
       if(res==null) return;
       navigate("/")
@@ -131,8 +144,8 @@ const Write = () => {
           <ReactQuill
             className="editor"
             theme="snow"
-            // modules={modules}
-            // forwardedRef={editorRef}
+            modules={modules}
+            ref={editorRef}
             value={value}
             onChange={setValue}
           />
@@ -145,7 +158,7 @@ const Write = () => {
             <label>
 
               Subject
-
+              
               <select value={cat} onChange={(e) => {setCat(e.target.value)}}>
               {/* {console.log(cat==='Og')} */}
                 <option value="medicine" selected={cat===value} >Medicine</option>
