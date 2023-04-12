@@ -50,22 +50,22 @@ const Write = () => {
         }
     };
   };
-    const modules = useMemo(() => ({
-        toolbar: {
-            container: [
-              [{ 'header': [1, 2, 3, 4, 5, 6, false] }],  
-              ['bold', 'italic', 'underline'],  
-              [{ 'list': 'ordered' }, { 'list': 'bullet' }],  
-              [{ 'align': [] }],  
-              ['link', 'image'],  
-              ['clean'],  
-              [{ 'color': [] }]  
-            ],
-            handlers: {
-                image: imageHandler,
-            },
-        },
-    }));
+    // const modules = useMemo(() => ({
+    //     toolbar: {
+    //         container: [
+    //           [{ 'header': [1, 2, 3, 4, 5, 6, false] }],  
+    //           ['bold', 'italic', 'underline'],  
+    //           [{ 'list': 'ordered' }, { 'list': 'bullet' }],  
+    //           [{ 'align': [] }],  
+    //           ['link', 'image'],  
+    //           ['clean'],  
+    //           [{ 'color': [] }]  
+    //         ],
+    //         handlers: {
+    //             image: imageHandler,
+    //         },
+    //     },
+    // }));
   const state = useLocation().state;
   const [value, setValue] = useState(state?.desc || "");
   const [title, setTitle] = useState(state?.title || "");
@@ -144,7 +144,7 @@ const Write = () => {
           <ReactQuill
             className="editor"
             theme="snow"
-            modules={modules}
+            // modules={modules}
             ref={editorRef}
             value={value}
             onChange={setValue}
