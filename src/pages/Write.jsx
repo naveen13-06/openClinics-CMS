@@ -6,66 +6,79 @@ import api from "../api/api"
 import Server from "../Utils/config";
 import { useMemo, useRef } from "react";
 
-
-
-function  saveToServer(file) {
-  const fd = new FormData();
-  fd.append("upload", file);
-  const res=api.uploadMedia(Server.databaseID,Server.collectionID,fd);
-  // const xhr = new XMLHttpRequest();
-  // xhr.open("POST", "/api/media", true);
-  // xhr.onload = () => {
-  //     if (xhr.status === 201) {
-  //         // this is callback data: url
-  //         const url = JSON.parse(xhr.responseText).url;
-  //         insertToEditor(url);
-  //     }
-  // };
-  // xhr.send(fd);
-}
     
 const Write = () => {
   //console.log(useLocation());
-  const editorRef = useRef(null);
-  // var quillObj = null;
+  const quillRef = useRef();
+  const videoHandler = (a) => {
+    const editor = quillRef.current.getEditor();
+    console.log(editor)
+    const input = document.createElement("input");
+    input.setAttribute("type", "file");
+    input.setAttribute("accept", "video/*");
+    input.setAttribute("allowfullscreen", "false");
+    input.click();
+    input.onchange = async () => {
+        const file = input.files? input.files[0]:null;
+        if (file && /^video\//.test(file.type)) {
+          const formData = new FormData();
+          formData.append('video', file);
+          const det=await api.uploadMedia(Server.bucketID,input.files[0]);
+          const url=`https://appwrite.open-clinics-cms.live/v1/storage/buckets/64343c0ac11d44d86300/files/${det.$id}/view?project=642d6c3be181312b0360&mode=admin`
+          setAddresses((prev) => [...prev,det.$id]);
+          editor.insertEmbed(editor.getSelection().index, "video", url);
+          input.setAttribute("allow", "autoplay; fullscreen; picture-in-picture");
+        } else {
+            console.warn("You could only upload videos");
+        }
+    };
+  };
   const imageHandler = (a) => {
+    const editor = quillRef.current.getEditor();
+    console.log(editor)
     const input = document.createElement("input");
     input.setAttribute("type", "file");
     input.setAttribute("accept", "image/*");
     input.click();
     input.onchange = async () => {
-        const file = input.files[0];
-        if (/^image\//.test(file.type)) {
-          //const url=await api.uploadMedia(Server.databaseID,Server.collectionID,input.files[0]);
-          console.log(editorRef.current);
-          // const range = quillObj.getEditorSelection();  
-          // console.log(range);
-          //     // var res = siteUrl + "/" + listName + "/" + filename;  
-  
-          // quillObj.getEditor().insertEmbed(null, 'image','http://appwrite.open-clinics-cms.live/v1/storage/buckets/64343c0ac11d44d86300/files/64343fabbf828549e28c/preview?width=200&height=200&project=642d6c3be181312b0360'); 
-          editorRef.current.getEditor().insertEmbed(null, "image", 'http://appwrite.open-clinics-cms.live/v1/storage/buckets/64343c0ac11d44d86300/files/64343fabbf828549e28c/preview?width=200&height=200&project=642d6c3be181312b0360');
-          // console.log(url);
+        const file = input.files? input.files[0]:null;
+        if (file && /^image\//.test(file.type)) {
+          const formData = new FormData();
+          formData.append('image', file);
+          const det=await api.uploadMedia(Server.bucketID,input.files[0]);
+          const url=`https://appwrite.open-clinics-cms.live/v1/storage/buckets/64343c0ac11d44d86300/files/${det.$id}/preview?width=200&height=200&project=642d6c3be181312b0360&mode=admin`
+          setAddresses((prev) => [...prev,det.$id]);
+          editor.insertEmbed(editor.getSelection().index, "image", url)
+         
         } else {
             console.warn("You could only upload images.");
         }
     };
   };
-    // const modules = useMemo(() => ({
-    //     toolbar: {
-    //         container: [
-    //           [{ 'header': [1, 2, 3, 4, 5, 6, false] }],  
-    //           ['bold', 'italic', 'underline'],  
-    //           [{ 'list': 'ordered' }, { 'list': 'bullet' }],  
-    //           [{ 'align': [] }],  
-    //           ['link', 'image'],  
-    //           ['clean'],  
-    //           [{ 'color': [] }]  
-    //         ],
-    //         handlers: {
-    //             image: imageHandler,
-    //         },
-    //     },
-    // }));
+    const modules = useMemo(() => ({
+        toolbar: {
+            container: [
+              [{ 'header': [1, 2, 3, 4, 5, 6, false] }],  
+              ['bold', 'italic', 'underline'],  
+              [{ 'list': 'ordered' }, { 'list': 'bullet' },
+              { 'indent': '-1' }, { 'indent': '+1' }],  
+              [{ 'align': [] }],  
+              ['link', 'image','video'],  
+              ['clean'],  
+              [{ 'color': [] }]  
+            ],
+            handlers: {
+              image: () => {
+                imageHandler();
+              },
+              video: () => {
+                videoHandler()
+              },
+              // insertImage: insertImage,
+            },
+        },
+    }),[]);
+    
   const state = useLocation().state;
   const [value, setValue] = useState(state?.desc || "");
   const [title, setTitle] = useState(state?.title || "");
@@ -73,6 +86,7 @@ const Write = () => {
   const [cn, setCn] = useState(state?.cn || "");
   const [cat, setCat] = useState(state?.cat || "Medicine");
   const [subcat, setSubcat] = useState(state?.subcat || "abdomen");
+  const [addresses, setAddresses] = useState(state?.files||[]);
 // console.log(state?.subcat);
   const med=["abdomen","cns","cvs","renal","rs"];
   const og=["obstetric","gynaecology"];
@@ -103,14 +117,20 @@ const Write = () => {
  
   const handleClick = async (e) => {
     e.preventDefault();
+    const str=JSON.stringify(value);
+    var files=addresses.filter((a) =>str.includes(a))
+    console.log(files);
+    addresses.map(async(a)=>{
+      if(!files.includes(a)) await api.deleteFile(Server.bucketID,a);
+    })
     const cards={
       cn:cn,
       head:head,
       title:title,
-      desc:value
+      desc:value,
+      files:files
     }
     try {
-     
       const res=await api.updateDocument(Server.databaseID,Server.collectionID,cat,subcat,cards)
       if(res==null) return;
       navigate("/")
@@ -119,7 +139,7 @@ const Write = () => {
     }
   };
 
-  return (
+  return ( 
     <div className="add">
       <div className="content">
         <input
@@ -144,9 +164,9 @@ const Write = () => {
           <ReactQuill
             className="editor"
             theme="snow"
-            // modules={modules}
-            ref={editorRef}
+            modules={modules}
             value={value}
+            ref={quillRef}
             onChange={setValue}
           />
         </div>

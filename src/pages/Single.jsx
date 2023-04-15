@@ -36,6 +36,9 @@ const Single = () => {
 
   const handleDelete = async ()=>{
       try {
+        post.files.map(async (a)=>{
+          await api.deleteFile(Server.bucketID,a);
+        })
         await api.deleteCard(Server.databaseID,Server.collectionID,cat,type,postId);
         navigate("/")
       } catch (err) {
@@ -47,17 +50,6 @@ const Single = () => {
     const doc = new DOMParser().parseFromString(html, "text/html")
     return doc.body.textContent
   }
-  // const showimg = async() =>{
-  //   try{
-  //     const res=await api.showfile(Server.bucketID,'64343fabbf828549e28c');
-  //     console.log(res.href)
-  //     return res.href;
-  //   }
-  //   catch(err){
-  //     console.log(err);
-  //   }
-  //   return null;
-  // }
 
   return (
     <div className="single">
@@ -68,13 +60,12 @@ const Single = () => {
             <span>{post.username}</span>
             <p>Posted {moment(post.date).fromNow()}</p>
           </div>
-          
+          {console.log(post.desc)}
             <div className="edit">
               <Link to={`/write?edit=2`} state={post}>
                 <img src={Edit} alt="" />
               </Link>
               <img onClick={()=>{ if (window.confirm('Are you sure you wish to delete this item?'))handleDelete() }} src={Delete} alt="" />
-              
             </div>
          
         </div>
@@ -82,12 +73,11 @@ const Single = () => {
         <h1>{post.title}</h1>
         <p
           dangerouslySetInnerHTML={{
-            __html: DOMPurify.sanitize(post.desc),
+            __html: DOMPurify.sanitize(post.desc,{ ADD_TAGS: ["iframe"], ADD_ATTR: ['allow', 'allowfullscreen', 'frameborder', 'scrolling'] }),
           }}
         ></p>      </div>
       <Menu props={[cat,type]}/>
-      {/* <img src='http://appwrite.open-clinics-cms.live/v1/storage/buckets/64343c0ac11d44d86300/files/64343fabbf828549e28c/preview?width=200&height=200&project=642d6c3be181312b0360' alt="img" /> */}
-    </div>
+      </div>
   );
 };
 

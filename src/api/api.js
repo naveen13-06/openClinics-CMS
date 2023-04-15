@@ -122,12 +122,12 @@ let api = {
     // console.log(data);
     return api.provider().database.updateDocument(databaseId,collectionID,id,data);
   },
-  uploadMedia:async(databaseId,collectionID,fd) => {
+  uploadMedia:async(bucketID,fd) => {
    console.log(fd);
-    return await api.provider().storage.createFile('64343c0ac11d44d86300','unique()',fd);
+    return await api.provider().storage.createFile(bucketID,'unique()',fd);
   },
-  showfile:async(bid,fileId) => {
-    return await api.provider().storage.getFilePreview(bid,fileId,'10','10');
+  deleteFile:async(bid,fileId) => {
+    return await api.provider().storage.deleteFile(bid,fileId);
   }
 };
 
