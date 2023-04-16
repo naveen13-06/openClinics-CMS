@@ -9,7 +9,7 @@ const Menu = ({props}) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        console.log(cat);
+        //console.log(cat);
         const res = await api.listDocuments(Server.databaseID,Server.collectionID,cat,type);
         res.documents[0].cards.slice(0,3).map((card)=>{
           if(card!=null) setPosts((prev)=>{return [...prev,JSON.parse(card)]});

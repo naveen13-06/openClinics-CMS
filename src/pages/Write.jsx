@@ -1,83 +1,82 @@
 import React, { useEffect, useState } from "react";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
+import { Editor } from '@tinymce/tinymce-react';
+// import "react-quill/dist/quill.snow.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import api from "../api/api"
 import Server from "../Utils/config";
 import { useMemo, useRef } from "react";
 
-    
 const Write = () => {
   //console.log(useLocation());
-  const quillRef = useRef();
-  const videoHandler = (a) => {
-    const editor = quillRef.current.getEditor();
-    console.log(editor)
-    const input = document.createElement("input");
-    input.setAttribute("type", "file");
-    input.setAttribute("accept", "video/*");
-    input.setAttribute("allowfullscreen", "false");
-    input.click();
-    input.onchange = async () => {
-        const file = input.files? input.files[0]:null;
-        if (file && /^video\//.test(file.type)) {
-          const formData = new FormData();
-          formData.append('video', file);
-          const det=await api.uploadMedia(Server.bucketID,input.files[0]);
-          const url=`https://appwrite.open-clinics-cms.live/v1/storage/buckets/64343c0ac11d44d86300/files/${det.$id}/view?project=642d6c3be181312b0360&mode=admin`
-          setAddresses((prev) => [...prev,det.$id]);
-          editor.insertEmbed(editor.getSelection().index, "video", url);
-          input.setAttribute("allow", "autoplay; fullscreen; picture-in-picture");
-        } else {
-            console.warn("You could only upload videos");
-        }
-    };
-  };
-  const imageHandler = (a) => {
-    const editor = quillRef.current.getEditor();
-    console.log(editor)
-    const input = document.createElement("input");
-    input.setAttribute("type", "file");
-    input.setAttribute("accept", "image/*");
-    input.click();
-    input.onchange = async () => {
-        const file = input.files? input.files[0]:null;
-        if (file && /^image\//.test(file.type)) {
-          const formData = new FormData();
-          formData.append('image', file);
-          const det=await api.uploadMedia(Server.bucketID,input.files[0]);
-          const url=`https://appwrite.open-clinics-cms.live/v1/storage/buckets/64343c0ac11d44d86300/files/${det.$id}/preview?width=200&height=200&project=642d6c3be181312b0360&mode=admin`
-          setAddresses((prev) => [...prev,det.$id]);
-          editor.insertEmbed(editor.getSelection().index, "image", url)
+  const editorRef = useRef();
+  // const videoHandler = (a) => {
+  //   const editor = quillRef.current.getEditor();
+  //   console.log(editor)
+  //   const input = document.createElement("input");
+  //   input.setAttribute("type", "file");
+  //   input.setAttribute("accept", "video/*");
+  //   input.setAttribute("allowfullscreen", "false");
+  //   input.click();
+  //   input.onchange = async () => {
+  //       const file = input.files? input.files[0]:null;
+  //       if (file && /^video\//.test(file.type)) {
+  //         const formData = new FormData();
+  //         formData.append('video', file);
+  //         const det=await api.uploadMedia(Server.bucketID,input.files[0]);
+  //         const url=`https://appwrite.open-clinics-cms.live/v1/storage/buckets/64343c0ac11d44d86300/files/${det.$id}/view?project=642d6c3be181312b0360&mode=admin`
+  //         setAddresses((prev) => [...prev,det.$id]);
+  //         editor.insertEmbed(editor.getSelection().index, "video", url);
+  //         input.setAttribute("allow", "autoplay; fullscreen; picture-in-picture");
+  //       } else {
+  //           console.warn("You could only upload videos");
+  //       }
+  //   };
+  // };
+  // const imageHandler = (a) => {
+  //   const editor = quillRef.current.getEditor();
+  //   console.log(editor)
+  //   const input = document.createElement("input");
+  //   input.setAttribute("type", "file");
+  //   input.setAttribute("accept", "image/*");
+  //   input.click();
+  //   input.onchange = async () => {
+  //       const file = input.files? input.files[0]:null;
+  //       if (file && /^image\//.test(file.type)) {
+  //         const formData = new FormData();
+  //         formData.append('image', file);
+  //         const det=await api.uploadMedia(Server.bucketID,input.files[0]);
+  //         const url=`https://appwrite.open-clinics-cms.live/v1/storage/buckets/64343c0ac11d44d86300/files/${det.$id}/preview?width=200&height=200&project=642d6c3be181312b0360&mode=admin`
+  //         setAddresses((prev) => [...prev,det.$id]);
+  //         editor.insertEmbed(editor.getSelection().index, "image", url)
          
-        } else {
-            console.warn("You could only upload images.");
-        }
-    };
-  };
-    const modules = useMemo(() => ({
-        toolbar: {
-            container: [
-              [{ 'header': [1, 2, 3, 4, 5, 6, false] }],  
-              ['bold', 'italic', 'underline'],  
-              [{ 'list': 'ordered' }, { 'list': 'bullet' },
-              { 'indent': '-1' }, { 'indent': '+1' }],  
-              [{ 'align': [] }],  
-              ['link', 'image','video'],  
-              ['clean'],  
-              [{ 'color': [] }]  
-            ],
-            handlers: {
-              image: () => {
-                imageHandler();
-              },
-              video: () => {
-                videoHandler()
-              },
-              // insertImage: insertImage,
-            },
-        },
-    }),[]);
+  //       } else {
+  //           console.warn("You could only upload images.");
+  //       }
+  //   };
+  // };
+    // const modules = useMemo(() => ({
+    //     toolbar: {
+    //         container: [
+    //           [{ 'header': [1, 2, 3, 4, 5, 6, false] }],  
+    //           ['bold', 'italic', 'underline'],  
+    //           [{ 'list': 'ordered' }, { 'list': 'bullet' },
+    //           { 'indent': '-1' }, { 'indent': '+1' }],  
+    //           [{ 'align': [] }],  
+    //           ['link', 'image','video'],  
+    //           ['clean'],  
+    //           [{ 'color': [] }]  
+    //         ],
+    //         handlers: {
+    //           image: () => {
+    //             imageHandler();
+    //           },
+    //           video: () => {
+    //             videoHandler()
+    //           },
+    //           // insertImage: insertImage,
+    //         },
+    //     },
+    // }),[]);
     
   const state = useLocation().state;
   const [value, setValue] = useState(state?.desc || "");
@@ -138,6 +137,15 @@ const Write = () => {
       console.log(err);
     }
   };
+ async function example_image_upload_handler (blobInfo, success, failure, progress) {
+    var formData,xhr;
+    xhr = new XMLHttpRequest();
+  const det=await api.uploadMedia(Server.bucketID,blobInfo.blob());
+  const url=`https://appwrite.open-clinics-cms.live/v1/storage/buckets/64343c0ac11d44d86300/files/${det.$id}/preview?project=642d6c3be181312b0360&mode=admin`
+    success(url);
+    formData = new FormData();
+    formData.append('file', blobInfo.blob(), blobInfo.filename());
+  };
 
   return ( 
     <div className="add">
@@ -161,14 +169,35 @@ const Write = () => {
           onChange={(e) => setCn(e.target.value)}
         />
         <div className="editorContainer">
-          <ReactQuill
+          {/* <ReactQuill
             className="editor"
             theme="snow"
             modules={modules}
             value={value}
             ref={quillRef}
             onChange={setValue}
-          />
+          /> */}
+          <Editor
+         onInit={(evt, editor) => editorRef.current = editor}
+         value={value}
+         onEditorChange={(newValue, editor) => {setValue(newValue);}}
+         init={{
+           height: 500,
+           menubar: false,
+           menubar: 'file edit view insert format tools table help',
+           plugins: [
+             'advlist autolink lists link image charmap print preview anchor',
+             'searchreplace visualblocks code fullscreen',
+             'insertdatetime media table paste code wordcount'
+           ],
+           toolbar: 'insertfile undo redo | formatselect | ' +
+           'bold italic backcolor | alignleft aligncenter ' +
+           'alignright alignjustify | bullist numlist outdent indent | ' +
+           'removeformat | link image media',
+           images_upload_handler: example_image_upload_handler,
+           content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
+         }}
+       />
         </div>
       </div>
       <div className="menu">
@@ -181,13 +210,13 @@ const Write = () => {
               
               <select value={cat} onChange={(e) => {setCat(e.target.value)}}>
               {/* {console.log(cat==='Og')} */}
-                <option value="medicine" selected={cat===value} >Medicine</option>
+                <option value="medicine"  >Medicine</option>
 
-                <option value="og" selected={cat===value}>OG</option>
+                <option value="og" >OG</option>
 
-                <option value="pediatrics" selected={cat===value}>Pediatrics</option>
+                <option value="pediatrics" >Pediatrics</option>
 
-                <option value="surgery" selected={cat===value}>Surgery</option>
+                <option value="surgery" >Surgery</option>
 
               </select>
               </label>
@@ -196,7 +225,7 @@ const Write = () => {
               <select value={subcat} onChange={(e) => {setSubcat(e.target.value)}}>
                 {items.map((item,index) => (
                   (
-                    <option key={index} value={item} selected={subcat === value}>{item}</option>
+                    <option key={index} value={item}>{item}</option>
                   )
                 ))}
               </select>

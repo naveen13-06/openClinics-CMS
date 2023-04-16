@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.1.1",
     "@testing-library/user-event": "^13.5.0",
+    "@tinymce/tinymce-react": "^4.3.0",
     "appwrite": "^10.2.0",
     "dompurify": "^2.4.0",
     "http-proxy-middleware": "^2.0.6",
@@ -45,6 +46,5 @@
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "src/index.js",
   "author": "naveen",
-  "license": "ISC",
-  "devDependencies": {}
+  "license": "ISC"
 }

@@ -23,7 +23,7 @@ let api = {
 //   },
 
   getAccount: () => {
-    console.log("getAccount");
+    //console.log("getAccount");
     let account = api.provider().account;
     let promise= account.get();
     // promise.then((res)=>{
@@ -43,7 +43,7 @@ let api = {
   },
   deleteCurrentSession: () => {
     const email=JSON.parse(localStorage.getItem("user"));
-    console.log(email.name);
+    //console.log(email.name);
     return api.provider().account.deleteSession("current");
   },
   // createDocument: (databaseId,collectionId,data) => {
