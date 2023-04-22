@@ -76,7 +76,6 @@ const Write = () => {
     var formData;
     const det = await api.uploadMedia(Server.bucketID, blobInfo.blob());
     const url = `https://appwrite.open-clinics-cms.live/v1/storage/buckets/64343c0ac11d44d86300/files/${det.$id}/view?project=642d6c3be181312b0360&mode=admin`
-    blobInfo.blobUri = url;
     success(url);
     formData = new FormData();
     formData.append('file', blobInfo.blob(), blobInfo.filename());
