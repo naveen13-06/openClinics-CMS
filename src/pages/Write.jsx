@@ -4,80 +4,11 @@ import { Editor } from '@tinymce/tinymce-react';
 import { useLocation, useNavigate } from "react-router-dom";
 import api from "../api/api"
 import Server from "../Utils/config";
-import { useMemo, useRef } from "react";
-
+import { useRef } from "react";
+import LoadingSpinner from "../components/LoadingSpinner";
 const Write = () => {
-  //console.log(useLocation());
   const editorRef = useRef();
-  // const videoHandler = (a) => {
-  //   const editor = quillRef.current.getEditor();
-  //   console.log(editor)
-  //   const input = document.createElement("input");
-  //   input.setAttribute("type", "file");
-  //   input.setAttribute("accept", "video/*");
-  //   input.setAttribute("allowfullscreen", "false");
-  //   input.click();
-  //   input.onchange = async () => {
-  //       const file = input.files? input.files[0]:null;
-  //       if (file && /^video\//.test(file.type)) {
-  //         const formData = new FormData();
-  //         formData.append('video', file);
-  //         const det=await api.uploadMedia(Server.bucketID,input.files[0]);
-  //         const url=`https://appwrite.open-clinics-cms.live/v1/storage/buckets/64343c0ac11d44d86300/files/${det.$id}/view?project=642d6c3be181312b0360&mode=admin`
-  //         setAddresses((prev) => [...prev,det.$id]);
-  //         editor.insertEmbed(editor.getSelection().index, "video", url);
-  //         input.setAttribute("allow", "autoplay; fullscreen; picture-in-picture");
-  //       } else {
-  //           console.warn("You could only upload videos");
-  //       }
-  //   };
-  // };
-  // const imageHandler = (a) => {
-  //   const editor = quillRef.current.getEditor();
-  //   console.log(editor)
-  //   const input = document.createElement("input");
-  //   input.setAttribute("type", "file");
-  //   input.setAttribute("accept", "image/*");
-  //   input.click();
-  //   input.onchange = async () => {
-  //       const file = input.files? input.files[0]:null;
-  //       if (file && /^image\//.test(file.type)) {
-  //         const formData = new FormData();
-  //         formData.append('image', file);
-  //         const det=await api.uploadMedia(Server.bucketID,input.files[0]);
-  //         const url=`https://appwrite.open-clinics-cms.live/v1/storage/buckets/64343c0ac11d44d86300/files/${det.$id}/preview?width=200&height=200&project=642d6c3be181312b0360&mode=admin`
-  //         setAddresses((prev) => [...prev,det.$id]);
-  //         editor.insertEmbed(editor.getSelection().index, "image", url)
-         
-  //       } else {
-  //           console.warn("You could only upload images.");
-  //       }
-  //   };
-  // };
-    // const modules = useMemo(() => ({
-    //     toolbar: {
-    //         container: [
-    //           [{ 'header': [1, 2, 3, 4, 5, 6, false] }],  
-    //           ['bold', 'italic', 'underline'],  
-    //           [{ 'list': 'ordered' }, { 'list': 'bullet' },
-    //           { 'indent': '-1' }, { 'indent': '+1' }],  
-    //           [{ 'align': [] }],  
-    //           ['link', 'image','video'],  
-    //           ['clean'],  
-    //           [{ 'color': [] }]  
-    //         ],
-    //         handlers: {
-    //           image: () => {
-    //             imageHandler();
-    //           },
-    //           video: () => {
-    //             videoHandler()
-    //           },
-    //           // insertImage: insertImage,
-    //         },
-    //     },
-    // }),[]);
-    
+  const [loading, setLoading] = useState(false);
   const state = useLocation().state;
   const [value, setValue] = useState(state?.desc || "");
   const [title, setTitle] = useState(state?.title || "");
@@ -85,22 +16,23 @@ const Write = () => {
   const [cn, setCn] = useState(state?.cn || "");
   const [cat, setCat] = useState(state?.cat || "Medicine");
   const [subcat, setSubcat] = useState(state?.subcat || "abdomen");
-  const [addresses, setAddresses] = useState(state?.files||[]);
-// console.log(state?.subcat);
-  const med=["abdomen","cns","cvs","renal","rs"];
-  const og=["obstetric","gynaecology"];
-  const pediatrics=["abdomen","cns","cvs","anthropometry","rs","newborn","headtofoot"];
-  const surgery=["breast","varicose_vein","swelling","ulcer","abdomen","hernia","peripheral_arterial_disease"];
-  const [items,setItems]=useState(med);
-  useEffect(()=>{
-    if(cat==="medicine") setItems(med);
-    else if(cat==="og") setItems(og);
-    else if(cat==="pediatrics") setItems(pediatrics);
-    else if(cat==="surgery") setItems(surgery);
-  },[cat])
-  useEffect(()=>{
-    if(!state?.subcat)setSubcat(items[0]);
-  },[items])
+  const initialCn = state?.cn || null;
+  const [addresses, setAddresses] = useState(state?.files || []);
+  // console.log(state?.subcat);
+  const med = ["abdomen", "cns", "cvs", "renal", "rs"];
+  const og = ["obstetric", "gynaecology"];
+  const pediatrics = ["abdomen", "cns", "cvs", "anthropometry", "rs", "newborn", "headtofoot"];
+  const surgery = ["breast", "varicose_vein", "swelling", "ulcer", "abdomen", "hernia", "peripheral_arterial_disease"];
+  const [items, setItems] = useState(med);
+  useEffect(() => {
+    if (cat === "medicine") setItems(med);
+    else if (cat === "og") setItems(og);
+    else if (cat === "pediatrics") setItems(pediatrics);
+    else if (cat === "surgery") setItems(surgery);
+  }, [cat])
+  useEffect(() => {
+    if (!state?.subcat) setSubcat(items[0]);
+  }, [items])
   const navigate = useNavigate()
 
   // const upload = async () => {
@@ -113,132 +45,158 @@ const Write = () => {
   //     console.log(err);
   //   }
   // };
- 
+
   const handleClick = async (e) => {
     e.preventDefault();
-    const str=JSON.stringify(value);
-    var files=addresses.filter((a) =>str.includes(a))
+    setLoading(true);
+    const str = JSON.stringify(value);
+    var files = addresses.filter((a) => str.includes(a))
     console.log(files);
-    addresses.map(async(a)=>{
-      if(!files.includes(a)) await api.deleteFile(Server.bucketID,a);
+    addresses.map(async (a) => {
+      if (!files.includes(a)) await api.deleteFile(Server.bucketID, a);
     })
-    const cards={
-      cn:cn,
-      head:head,
-      title:title,
-      desc:value,
-      files:files
+    const cards = {
+      cn: cn,
+      head: head,
+      title: title,
+      desc: value,
+      files: files
     }
     try {
-      const res=await api.updateDocument(Server.databaseID,Server.collectionID,cat,subcat,cards)
-      if(res==null) return;
+      const res = await api.updateDocument(Server.databaseID, Server.collectionID, cat, subcat, cards, initialCn);
+      setLoading(false);
+      if (res == null) return;
+
       navigate("/")
     } catch (err) {
       console.log(err);
     }
   };
- async function example_image_upload_handler (blobInfo, success, failure, progress) {
-    var formData,xhr;
-    xhr = new XMLHttpRequest();
-  const det=await api.uploadMedia(Server.bucketID,blobInfo.blob());
-  const url=`https://appwrite.open-clinics-cms.live/v1/storage/buckets/64343c0ac11d44d86300/files/${det.$id}/preview?project=642d6c3be181312b0360&mode=admin`
+  async function example_image_upload_handler(blobInfo, success, failure, progress) {
+    var formData;
+    const det = await api.uploadMedia(Server.bucketID, blobInfo.blob());
+    const url = `https://appwrite.open-clinics-cms.live/v1/storage/buckets/64343c0ac11d44d86300/files/${det.$id}/view?project=642d6c3be181312b0360&mode=admin`
+    blobInfo.blobUri = url;
     success(url);
     formData = new FormData();
     formData.append('file', blobInfo.blob(), blobInfo.filename());
+    console.log(blobInfo);
+    return url
   };
 
-  return ( 
-    <div className="add">
-      <div className="content">
-        <input
-          type="text"
-          placeholder="Head"
-          value={head}
-          onChange={(e) => setHead(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <input
-          type="number"
-          placeholder="Card Number"
-          value={cn}
-          onChange={(e) => setCn(e.target.value)}
-        />
-        <div className="editorContainer">
-          {/* <ReactQuill
-            className="editor"
-            theme="snow"
-            modules={modules}
-            value={value}
-            ref={quillRef}
-            onChange={setValue}
-          /> */}
-          <Editor
-         onInit={(evt, editor) => editorRef.current = editor}
-         value={value}
-         onEditorChange={(newValue, editor) => {setValue(newValue);}}
-         init={{
-           height: 500,
-           menubar: false,
-           menubar: 'file edit view insert format tools table help',
-           plugins: [
-             'advlist autolink lists link image charmap print preview anchor',
-             'searchreplace visualblocks code fullscreen',
-             'insertdatetime media table paste code wordcount'
-           ],
-           toolbar: 'insertfile undo redo | formatselect | ' +
-           'bold italic backcolor | alignleft aligncenter ' +
-           'alignright alignjustify | bullist numlist outdent indent | ' +
-           'removeformat | link image media',
-           images_upload_handler: example_image_upload_handler,
-           content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
-         }}
-       />
-        </div>
-      </div>
-      <div className="menu">
-        <div className="item">
-          <h1>Publish</h1>
-          <div className="cat">
-            <label>
+  return (
+    <>
+      {loading ? <LoadingSpinner /> :
+        <div className="add">
+          <div className="content">
+            <input
+              type="text"
+              placeholder="Head"
+              value={head}
+              onChange={(e) => setHead(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="Title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
+            <input
+              type="number"
+              placeholder="Card Number"
+              value={cn}
+              onChange={(e) => setCn(e.target.value)}
+            />
 
-              Subject
-              
-              <select value={cat} onChange={(e) => {setCat(e.target.value)}}>
-              {/* {console.log(cat==='Og')} */}
-                <option value="medicine"  >Medicine</option>
+            <div className="editorContainer">
+              <Editor
+                onInit={(evt, editor) => editorRef.current = editor}
+                value={value}
+                onEditorChange={(newValue, editor) => { setValue(newValue); }}
+                init={{
+                  height: 500,
+                  menubar: false,
+                  menubar: 'file edit view insert format tools table help',
+                  plugins: [
+                    'advlist autolink lists link image charmap print preview anchor',
+                    'searchreplace visualblocks code fullscreen',
+                    'insertdatetime media table paste code wordcount'
+                  ],
+                  toolbar: 'insertfile undo redo | formatselect | ' +
+                    'bold italic backcolor | alignleft aligncenter ' +
+                    'alignright alignjustify | bullist numlist outdent indent | ' +
+                    'removeformat | link image media',
+                  images_upload_handler: example_image_upload_handler,
+                  file_picker_types: 'file media',
+                  file_picker_callback: function (cb, value, meta) {
+                    var input = document.createElement('input');
+                    input.setAttribute('type', 'file');
+                    input.setAttribute('accept', ['video/*', 'audio/*']);
 
-                <option value="og" >OG</option>
+                    input.onchange = function () {
+                      var file = this.files[0];
+                      var reader = new FileReader();
 
-                <option value="pediatrics" >Pediatrics</option>
+                      reader.onload = async function () {
+                        var id = 'blobid' + (new Date()).getTime();
+                        var blobCache = editorRef.current.editorUpload.blobCache;
+                        //var base64 = reader.result.split(',')[1];
+                        var blobInfo = blobCache.create(id, file, 'application/octet-stream');
+                        const url = await example_image_upload_handler(blobInfo, function () { }, function () { }, function () { });
+                        cb(url, { title: file.name });
+                      };
+                      reader.readAsDataURL(file);
+                    };
 
-                <option value="surgery" >Surgery</option>
-
-              </select>
-              </label>
-              <label>
-              Types of Examination
-              <select value={subcat} onChange={(e) => {setSubcat(e.target.value)}}>
-                {items.map((item,index) => (
-                  (
-                    <option key={index} value={item}>{item}</option>
-                  )
-                ))}
-              </select>
-              </label>
+                    input.click();
+                  },
+                  content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
+                }}
+              />
+            </div>
           </div>
-          <div className="buttons">
-            {/* <button>Save as a draft</button> */}
-            <button onClick={handleClick}>Publish</button>
+          <div className="menu">
+            <div className="item">
+              <h1>Publish</h1>
+              <div className="cat">
+                <label>
+
+                  Subject
+
+                  <select value={cat} onChange={(e) => { setCat(e.target.value) }}>
+                    {/* {console.log(cat==='Og')} */}
+                    <option value="medicine"  >Medicine</option>
+
+                    <option value="og" >OG</option>
+
+                    <option value="pediatrics" >Pediatrics</option>
+
+                    <option value="surgery" >Surgery</option>
+
+                  </select>
+                </label>
+                <label>
+                  Types of Examination
+                  <select value={subcat} onChange={(e) => { setSubcat(e.target.value) }}>
+                    {items.map((item, index) => (
+                      (
+                        <option key={index} value={item}>{item}</option>
+                      )
+                    ))}
+                  </select>
+                </label>
+              </div>
+              <div className="buttons">
+                {/* <button>Save as a draft</button> */}
+                <button onClick={handleClick}>Publish</button>
+              </div>
+            </div>
+
           </div>
+
         </div>
-        
-      </div>
-    </div>
+      }
+    </>
   );
 };
 
