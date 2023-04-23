@@ -181,6 +181,9 @@ let api = {
       // const prevCards=res.documents[0].cards;
     
   },
+  insertQuestion:async(databaseId,collectionID,data) => {
+    return api.provider().database.createDocument(databaseId,collectionID,'unique()',data);
+  },
   deleteCard:async(databaseId,collectionID,cat,did,pid) => {
     console.log(cat,did,pid);
     const res= await api.provider().database.listDocuments(databaseId,collectionID,

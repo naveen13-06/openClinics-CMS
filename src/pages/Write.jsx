@@ -82,7 +82,6 @@ const Write = () => {
     console.log(blobInfo);
     return url
   };
-
   return (
     <>
       {loading ? <LoadingSpinner /> :

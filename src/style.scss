@@ -77,7 +77,10 @@ $lightGreen: #b9e7e7;
         }
       }
     }
-
+    .dropdown-container {
+      width: 300px;
+      z-index: 9999;
+    }
     //NAVBAR
 
     .navbar {

@@ -10,6 +10,7 @@ import Home from "./pages/Home";
 import Single from "./pages/Single";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import QueWrite from "./pages/QueWrite";
 import "./style.scss"
 import { useContext, useEffect } from "react";
 import { AuthContext } from "./context/authContext";
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: "/write",
         element: <Write />,
+      },
+      {
+        path: "/questions/write",
+        element: <QueWrite />,
       },
     ],
   },
