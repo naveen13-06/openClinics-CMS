@@ -2,7 +2,7 @@ const subjects=[
     {
         subject:'Pathology',
         lessons:[
-            'Cell Injury,death,and adaptations',
+            'Cell Injury,Cell death and adaptations',
             'Inflammation and repair',
             'Hemodynamic Disorders'
         ]
