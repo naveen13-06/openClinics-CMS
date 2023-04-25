@@ -29,9 +29,12 @@ const subjects=[
     'Peripheral Nerves and Skeletal Muscles',
     'The Central Nervous System',
   'The Eye'
-
-
-
+        ],
+        books:[
+            'Robbins and Cotran Pathologic Basis of Disease, 10e-South Asia Edition',
+            'Textbook of Pathology - Harsh Mohan - 8th Edition',
+            'Textbook of Haematology - Tejindar Singh',
+            'Exam Preparatory Manual for Undergraduates Pathology - Ramdaas Nayak'
         ]
     },
     {
@@ -40,6 +43,10 @@ const subjects=[
             'Genetic Disorders',
             'Diseases of the immune system',
             'Neoplasia'
+        ],
+        books:[
+            'book1',
+            'book2'
         ]
     }
 ]

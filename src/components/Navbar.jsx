@@ -18,6 +18,11 @@ const Navbar = () => {
         </div>
         <div className="menus">
         <ul className="menus">
+        <span className="write">
+            <Link className="link " to="/questions/write">
+              Questions
+            </Link>
+          </span>
         {menuItems.map((menu, index) => {
           return <MenuItem items={menu} key={index} />;
         })}

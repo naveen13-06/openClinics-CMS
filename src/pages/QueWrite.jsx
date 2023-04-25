@@ -20,6 +20,7 @@ const QueWrite = () => {
   const [lesson, setLesson] = useState(state?.lesson || subjects[0].lessons[0]);
   const [year, setYear] = useState(state?.year || "");
   const [items, setItems] = useState(subjects[0].lessons);
+  const [bookItems, setBookItems]=useState(subjects[0].books);
   const [book,setBook]=useState(state?.book || "");
   const [page,setPage]=useState(state?.page || "");
   const [booklist,setBooklist]=useState([]);
@@ -30,12 +31,9 @@ const QueWrite = () => {
     years.push({ value: i, label: i});
   }
   const navigate = useNavigate()
-  useEffect(()=>{
-    console.log(items);
-  },[items])
-  function handleSelect(data) {
-    setYear(data);
-  }
+  // useEffect(()=>{
+  //   console.log(que);
+  // },[que])
   function addBook(){
     setBooklist((prev)=>[...prev,{bookName:book,page:page}]);
     setBook("book1");
@@ -46,10 +44,6 @@ const QueWrite = () => {
   }
   async function publish(){
     setLoading(true);
-    var yearValues=[];
-    year.map((y)=>{
-        yearValues.push(y.value)
-    })
     var bookAndPages=[];
     booklist.map((item)=>{
         bookAndPages.push(JSON.stringify(item));
@@ -61,7 +55,7 @@ const QueWrite = () => {
       marks: marks,
       subject: subject,
       lesson: lesson,
-      years: [...yearValues],
+      years: year.split(","),
       pageNum:[...bookAndPages],
     }
     try {
@@ -82,29 +76,32 @@ const QueWrite = () => {
         <div className="add">
           <div className="content">
           
-            <input
+            <textarea
               type="text"
               placeholder="Question"
               value={que}
               onChange={(e) => setQue(e.target.value)}
               required
             />
-            <label htmlfor="board">Choose board:</label>
+            <label htmlFor="board">Choose board:</label>
                 <select value={board} onChange={(e) => { setBoard(e.target.value) }}>
                     <option value="MGR">MGR</option>
                 </select>
-            <label htmlfor="marks">Choose marks:</label>
+            <label htmlFor="marks">Choose marks:</label>
             <select value={marks} onChange={(e) => { setMarks(e.target.value) }}>
                     <option value="5"  >5 marks</option>
                     <option value="15" >15 marks</option>
             </select>
-            <label htmlfor="subjects">Choose Subject:</label>
-            <select value={subject} onChange={(e) => { setSubject(e.target.value);setItems(subjects[e.target.options.selectedIndex].lessons) }}>
+            <label htmlFor="subjects">Choose Subject:</label>
+            <select value={subject} onChange={(e) => {setSubject(e.target.value);
+                        setItems(subjects[e.target.options.selectedIndex].lessons)
+                        setBookItems(subjects[e.target.options.selectedIndex].books);
+                        }}>
                     {subjects.map((s,index)=>(
                         <option key={index} value={s.subject}>{s.subject}</option>
                     ))}
             </select>
-            <label htmlfor="Lessons">Choose Lesson:</label>
+            <label htmlFor="Lessons">Choose Lesson:</label>
             <select value={lesson} onChange={(e) => { setLesson(e.target.value) }}>
                 {items.map((s,index)=>(
                     <option key={index} value={s}>{s}</option>
@@ -118,10 +115,11 @@ const QueWrite = () => {
                     <button onClick={(e)=>deleteBook(index)}>Delete</button>
                 </div>
             ))}
-            <label htmlfor="book">Choose Books:</label>
+            <label htmlFor="book">Choose Books:  </label>
             <select value={book} onChange={(e) => { setBook(e.target.value) }}>
-                <option value="book1"> Book 1</option>
-                <option value="book2"> Book 2</option>
+                  {bookItems.map((s,index)=>(
+                          <option key={index} value={s}>{s}</option>
+                      ))}
             </select>
             <input
               type="text"
@@ -132,16 +130,15 @@ const QueWrite = () => {
             />
             <button onClick={addBook}>Add Book</button>
             </div>
-            <div className="dropdown-container">
-            <Select
-                options={years}
-                placeholder="Select Years"
-                value={year}
-                onChange={handleSelect}
-                isSearchable={true}
-                isMulti={true}
+            
+            <input
+              type="text"
+              placeholder="Write years seperated by comma"
+              value={year}
+              onChange={(e) => setYear(e.target.value)}
+              required
             />
-            </div>
+           
             
 
             <div className="editorContainer">
@@ -167,7 +164,7 @@ const QueWrite = () => {
                 }}
               />
             </div>
-            <button onClick={publish}>Submit</button>
+            <button style={{width:'200px'}} onClick={publish}>Submit</button>
           </div>
         </div>
       }
