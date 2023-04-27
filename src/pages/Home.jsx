@@ -51,16 +51,11 @@ const Home = () => {
       <div className="posts">
         {posts.map((post) => (
           <div className="post" key={post.cn}>
-            <div className="img">
-            </div>
             <div className="content">
-              <h3>Card Number {post.cn}</h3>
               <Link className="link" to={`/post/${cat}/${type}/${post.cn}`}>
-                <h1>{post.title}</h1>
-              </Link>
-              <p>{getText(post.desc).slice(0,80)}...</p>
-              <Link className="link" to={`/post/${cat}/${type}/${post.cn}`}>
-                  <button>Read More</button>
+              <span>Card Number {post.cn}</span>
+                <span>{post.title}</span>
+                <span>{post.head}</span>
               </Link>
             </div>
           </div>
