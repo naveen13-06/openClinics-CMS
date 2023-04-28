@@ -6,7 +6,6 @@ import api from "../api/api"
 import Server from "../Utils/config";
 import { useRef } from "react";
 import LoadingSpinner from "../components/LoadingSpinner";
-import Select from "react-select";
 import subjects from '../components/subjects'
 const QueWrite = () => {
   const editorRef = useRef();
@@ -17,9 +16,9 @@ const QueWrite = () => {
   const [board, setBoard] = useState(state?.board || "MGR");
   const [marks, setMarks] = useState(state?.marks || "5");
   const [subject, setSubject] = useState(state?.subject || subjects[0].subject);
-  const [lesson, setLesson] = useState(state?.lesson || subjects[0].lessons[0]);
+  const [lesson, setLesson] = useState(state?.lesson || subjects[0].submenu[0].title);
   const [year, setYear] = useState(state?.year || "");
-  const [items, setItems] = useState(subjects[0].lessons);
+  const [items, setItems] = useState(subjects[0].submenu);
   const [bookItems, setBookItems]=useState(subjects[0].books);
   const [book,setBook]=useState(state?.book || "");
   const [page,setPage]=useState(state?.page || "");
@@ -36,7 +35,7 @@ const QueWrite = () => {
   // },[que])
   function addBook(){
     setBooklist((prev)=>[...prev,{bookName:book,page:page}]);
-    setBook("book1");
+    setBook(bookItems[0]);
     setPage("");
   }
   function deleteBook(k){
@@ -62,8 +61,7 @@ const QueWrite = () => {
         const res = await api.insertQuestion(Server.databaseID, "64413ea96acba3fd2ee7",data);
         setLoading(false);
         if (res == null) return;
-  
-        navigate("/")
+        navigate("/questions");
       } catch (err) {
         console.log(err);
       } 
@@ -94,7 +92,7 @@ const QueWrite = () => {
             </select>
             <label htmlFor="subjects">Choose Subject:</label>
             <select value={subject} onChange={(e) => {setSubject(e.target.value);
-                        setItems(subjects[e.target.options.selectedIndex].lessons)
+                        setItems(subjects[e.target.options.selectedIndex].submenu)
                         setBookItems(subjects[e.target.options.selectedIndex].books);
                         }}>
                     {subjects.map((s,index)=>(
@@ -104,14 +102,14 @@ const QueWrite = () => {
             <label htmlFor="Lessons">Choose Lesson:</label>
             <select value={lesson} onChange={(e) => { setLesson(e.target.value) }}>
                 {items.map((s,index)=>(
-                    <option key={index} value={s}>{s}</option>
+                    <option key={index} value={s.title}>{s.title}</option>
                 ))}
             </select>
             <div>
             {booklist.map((b,index)=>(
                 <div key={index}>
                     <span>{b.bookName}</span>
-                    <span>{b.page}</span>
+                    <span style={{padding:10+'px'}}>{b.page}</span>
                     <button onClick={(e)=>deleteBook(index)}>Delete</button>
                 </div>
             ))}

@@ -78,8 +78,12 @@ const menuItems = [
           url: '/?domain=surgery&type=breast',
         },
         {
+          title: 'Thyroid',
+          url: '/?domain=surgery&type=thyroid',
+        },
+        {
           title: 'Varicose vein',
-          url: '/?domain=surgery&type=varicose_vein',
+          url: '/?domain=surgery&type=varicose vein',
         },
         {
           title: 'Swelling',
@@ -99,7 +103,7 @@ const menuItems = [
         },
         {
             title: 'Peripheral arterial disease',
-            url: '/?domain=surgery&type=peripheral_arterial_disease',
+            url: '/?domain=surgery&type=peripheral arterial disease',
         }
       ],
     }

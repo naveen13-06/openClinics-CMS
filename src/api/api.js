@@ -55,7 +55,7 @@ let api = {
     //console.log(cat);
     if(id){
       return api.provider().database.listDocuments(databaseId,collectionId,
-        [Query.equal('examinationName',id)],[Query.equal('subjectName',cat)] );
+        [Query.equal('examinationName',id),Query.equal('subjectName',cat)] );
     }
     if(cat){
       // console.log(collectionId);
@@ -64,9 +64,22 @@ let api = {
     }
     return null;
   },
+  listQuestions: (databaseId,collectionId,cat,id=null) => {
+    console.log(id);
+    if(id){
+      return api.provider().database.listDocuments(databaseId,collectionId,
+        [Query.equal('subject',cat),Query.equal('lesson',id)], );
+    }
+    // if(cat){
+    //   // console.log(collectionId);
+    // return api.provider().database.listDocuments(databaseId,collectionId
+    //   ,[Query.equal('subject',cat)]); 
+    // }
+    return null;
+  },
   getCard: async(databaseId,collectionID,cat,type,cn) => {
     const res= await api.provider().database.listDocuments(databaseId,collectionID,
-      [Query.equal('examinationName',type)],[Query.equal('subjectName',cat)]);
+      [Query.equal('examinationName',type),Query.equal('subjectName',cat)]);
     const ans=res.documents[0].cards.filter((card)=>{
       const data=JSON.parse(card);
       return data.cn===cn
@@ -74,10 +87,16 @@ let api = {
     // console.log(ans);
     return ans
   },
+  getQuestion: async(databaseId,collectionID,did) => {
+    return  await api.provider().database.getDocument(databaseId,collectionID,did);
+  },
+  deleteQuestion: async(databaseId,collectionID,did) => {
+    return  await api.provider().database.deleteDocument(databaseId,collectionID,did);
+  },
   updateDocument: async(databaseId, collectionId,cat,id,data,cn) => {
     console.log(data);
     const res=await api.provider().database.listDocuments(databaseId,collectionId,
-      [Query.equal('examinationName',id)],[Query.equal('subjectName',cat)] );
+      [Query.equal('examinationName',id),Query.equal('subjectName',cat)] );
     if(res.documents.length===0){
       return api.provider().database.createDocument(databaseId,collectionId,'unique()',{examinationName:id,subjectName:cat,cards:[JSON.stringify(data)]});
     }
@@ -205,6 +224,7 @@ let api = {
   deleteFile:async(bid,fileId) => {
     return await api.provider().storage.deleteFile(bid,fileId);
   }
+  
 };
 
 export default api;

@@ -22,7 +22,7 @@ const Write = () => {
   const med = ["abdomen", "cns", "cvs", "renal", "rs"];
   const og = ["obstetric", "gynaecology"];
   const pediatrics = ["abdomen", "cns", "cvs", "anthropometry", "rs", "newborn", "headtofoot"];
-  const surgery = ["breast", "varicose_vein", "swelling", "ulcer", "abdomen", "hernia", "peripheral_arterial_disease"];
+  const surgery = ["breast", "varicose vein", "swelling", "ulcer", "abdomen", "hernia", "peripheral arterial disease","thyroid"];
   const [items, setItems] = useState(med);
   useEffect(() => {
     if (cat === "medicine") setItems(med);
@@ -66,8 +66,8 @@ const Write = () => {
       const res = await api.updateDocument(Server.databaseID, Server.collectionID, cat, subcat, cards, initialCn);
       setLoading(false);
       if (res == null) return;
-
-      navigate("/")
+      alert("Updated Successfully");
+      initialCn=null;
     } catch (err) {
       console.log(err);
     }

@@ -14,6 +14,7 @@ import QueWrite from "./pages/QueWrite";
 import "./style.scss"
 import { useContext, useEffect } from "react";
 import { AuthContext } from "./context/authContext";
+import QueDisplay from "./pages/QueDisplay";
 
 const Layout = () => {
   return (
@@ -50,6 +51,14 @@ const router = createBrowserRouter([
         path: "/questions/write",
         element: <QueWrite />,
       },
+      {
+        path: "/questions",
+        element: <Home />,
+      },
+      {
+        path: "/questions/:subject/:lesson/:id",
+        element: <QueDisplay />,
+      }
     ],
   },
   {
