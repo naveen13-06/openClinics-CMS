@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Editor } from '@tinymce/tinymce-react';
 // import "react-quill/dist/quill.snow.css";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation,useNavigate } from "react-router-dom";
 import api from "../api/api"
 import Server from "../Utils/config";
 import { useRef } from "react";
@@ -11,28 +11,22 @@ const QueWrite = () => {
   const editorRef = useRef();
   const [loading, setLoading] = useState(false);
   const state = useLocation().state;
-  const [ans, setAns] = useState(state?.ans || "");
-  const [que, setQue] = useState(state?.que || "");
+  const [ans, setAns] = useState(state?.answerText.replace(/"|'/g,'') || "");
+  const [que, setQue] = useState(state?.questionText || "");
   const [board, setBoard] = useState(state?.board || "MGR");
   const [marks, setMarks] = useState(state?.marks || "5");
   const [subject, setSubject] = useState(state?.subject || subjects[0].subject);
   const [lesson, setLesson] = useState(state?.lesson || subjects[0].submenu[0].title);
-  const [year, setYear] = useState(state?.year || "");
+  const [year, setYear] = useState(state?.years?.join() || "");
   const [items, setItems] = useState(subjects[0].submenu);
   const [bookItems, setBookItems]=useState(subjects[0].books);
-  const [book,setBook]=useState(state?.book || "");
-  const [page,setPage]=useState(state?.page || "");
-  const [booklist,setBooklist]=useState([]);
-  var max = new Date().getFullYear()
-  var min = max - 100
-  var years = []
-  for(var i = max; i >= min; i--) {
-    years.push({ value: i, label: i});
-  }
+  const [book,setBook]=useState("");
+  const [page,setPage]=useState("");
+  const [booklist,setBooklist]=useState(state?.pageNum.map((s)=>JSON.parse(s)) || []);
   const navigate = useNavigate()
-  // useEffect(()=>{
-  //   console.log(que);
-  // },[que])
+  useEffect(()=>{
+    console.log(lesson);
+  },[lesson])
   function addBook(){
     setBooklist((prev)=>[...prev,{bookName:book,page:page}]);
     setBook(bookItems[0]);
@@ -58,7 +52,9 @@ const QueWrite = () => {
       pageNum:[...bookAndPages],
     }
     try {
-        const res = await api.insertQuestion(Server.databaseID, "64413ea96acba3fd2ee7",data);
+        var res;
+        if(!state) res = await api.insertQuestion(Server.databaseID, "64413ea96acba3fd2ee7",data);
+        else res=await api.updateQuestion(Server.databaseID, "64413ea96acba3fd2ee7",state.$id,data);   
         setLoading(false);
         if (res == null) return;
         navigate("/questions");
@@ -94,17 +90,20 @@ const QueWrite = () => {
             <select value={subject} onChange={(e) => {setSubject(e.target.value);
                         setItems(subjects[e.target.options.selectedIndex].submenu)
                         setBookItems(subjects[e.target.options.selectedIndex].books);
+                        setLesson(subjects[e.target.options.selectedIndex].submenu[0].title)
                         }}>
                     {subjects.map((s,index)=>(
                         <option key={index} value={s.subject}>{s.subject}</option>
                     ))}
             </select>
-            <label htmlFor="Lessons">Choose Lesson:</label>
-            <select value={lesson} onChange={(e) => { setLesson(e.target.value) }}>
+            <label >
+            Choose Lesson:
+            <select  value={lesson}  onChange={(e) => { setLesson(e.target.value) }}>
                 {items.map((s,index)=>(
                     <option key={index} value={s.title}>{s.title}</option>
                 ))}
             </select>
+            </label>
             <div>
             {booklist.map((b,index)=>(
                 <div key={index}>

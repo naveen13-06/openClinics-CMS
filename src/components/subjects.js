@@ -57,7 +57,7 @@ const subjects=[
         submenu:[
             {
                 title:'Diseases of the Immune System',
-                url:'//questions/?subject=pathology&lesson=Diseases of the Immune System'
+                url:'/questions/?subject=Anatomy&lesson=Diseases of the Immune System'
             } 
         ],
         books:[

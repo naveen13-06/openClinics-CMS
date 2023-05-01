@@ -19,7 +19,7 @@ const QueDisplay = () => {
   const cat =params.subject
   const [post, setPost] = useState({});
   const[loading,setLoading]=useState(true);
-
+  const[states,setStates]=useState({});
   const { currentUser } = useContext(AuthContext);
   useEffect(() => {
     const fetchData = async () => {
@@ -27,7 +27,7 @@ const QueDisplay = () => {
       try {
         console.log(cat,type,postId);
         const res = await api.getQuestion(Server.databaseID,'64413ea96acba3fd2ee7',postId)
-        // console.log(res);
+        console.log(res);
         setPost(res);
         setLoading(false);
       } catch (err) {

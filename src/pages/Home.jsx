@@ -21,6 +21,7 @@ const Home = () => {
     const fetchData = async () => {
       try {
         setLoading(true);
+        console.log(cat,type);
         const res =path!='questions'? await api.listDocuments(Server.databaseID,Server.collectionID,cat,type)
         :await api.listQuestions(Server.databaseID,'64413ea96acba3fd2ee7',cat,type);
         path!='questions'?res.documents[0].cards.map((card)=>{

@@ -203,6 +203,10 @@ let api = {
   insertQuestion:async(databaseId,collectionID,data) => {
     return api.provider().database.createDocument(databaseId,collectionID,'unique()',data);
   },
+  updateQuestion:async(databaseId,collectionID,did,data) => {
+    return api.provider().database.updateDocument(databaseId,collectionID,did,data);
+  },
+  
   deleteCard:async(databaseId,collectionID,cat,did,pid) => {
     console.log(cat,did,pid);
     const res= await api.provider().database.listDocuments(databaseId,collectionID,
