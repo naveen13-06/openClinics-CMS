@@ -384,7 +384,41 @@ $lightGreen: #0175C2;
     }
 
     //WRITE
+    .add1{
 
+      .content1{
+        flex: 5;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        select{
+          width: 25%;
+          padding: 12px;
+          margin-right: 12%;
+          margin-left:10px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          resize: vertical;
+        }
+        .books{
+          display:flex;
+          flex-direction:row;
+          margin-top: 20px;
+        }
+        .page{
+          width:25%;
+          margin-right: 4%;
+        }
+        .btn{
+          display: flex;
+  justify-content: flex-end;
+  align-items: end;
+        }
+        .btn1{
+          width: 20%;
+        }
+      }
+    }
     .add {
       margin-top: 20px;
       display: flex;

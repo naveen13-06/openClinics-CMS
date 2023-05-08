@@ -20,7 +20,7 @@ const QueWrite = () => {
   const [year, setYear] = useState(state?.years?.join() || "");
   const [items, setItems] = useState(subjects[0].submenu);
   const [bookItems, setBookItems]=useState(subjects[0].books);
-  const [book,setBook]=useState("");
+  const [book,setBook]=useState(bookItems[0]);
   const [page,setPage]=useState("");
   const [booklist,setBooklist]=useState(state?.pageNum.map((s)=>JSON.parse(s)) || []);
   const navigate = useNavigate()
@@ -67,9 +67,8 @@ const QueWrite = () => {
   return (
     <>
       {loading ? <LoadingSpinner /> :
-        <div className="add">
-          <div className="content">
-          
+        <div className="add1">
+          <div className="content1">
             <textarea
               type="text"
               placeholder="Question"
@@ -77,25 +76,33 @@ const QueWrite = () => {
               onChange={(e) => setQue(e.target.value)}
               required
             />
-            <label htmlFor="board">Choose board:</label>
+            <span>
+            <label htmlFor="board">Choose board:
                 <select value={board} onChange={(e) => { setBoard(e.target.value) }}>
                     <option value="MGR">MGR</option>
                 </select>
-            <label htmlFor="marks">Choose marks:</label>
+                </label>
+            <label htmlFor="marks">Choose marks:
             <select value={marks} onChange={(e) => { setMarks(e.target.value) }}>
                     <option value="5"  >5 marks</option>
                     <option value="15" >15 marks</option>
             </select>
-            <label htmlFor="subjects">Choose Subject:</label>
+            </label>
+            </span>
+            <span>
+            <label htmlFor="subjects">Choose Subject:
             <select value={subject} onChange={(e) => {setSubject(e.target.value);
                         setItems(subjects[e.target.options.selectedIndex].submenu)
                         setBookItems(subjects[e.target.options.selectedIndex].books);
                         setLesson(subjects[e.target.options.selectedIndex].submenu[0].title)
+                        setBook(subjects[e.target.options.selectedIndex].books[0]);
+                        setBooklist([]);
                         }}>
                     {subjects.map((s,index)=>(
                         <option key={index} value={s.subject}>{s.subject}</option>
                     ))}
             </select>
+            </label>
             <label >
             Choose Lesson:
             <select  value={lesson}  onChange={(e) => { setLesson(e.target.value) }}>
@@ -104,7 +111,8 @@ const QueWrite = () => {
                 ))}
             </select>
             </label>
-            <div>
+            </span>
+            <div >
             {booklist.map((b,index)=>(
                 <div key={index}>
                     <span>{b.bookName}</span>
@@ -112,13 +120,14 @@ const QueWrite = () => {
                     <button onClick={(e)=>deleteBook(index)}>Delete</button>
                 </div>
             ))}
-            <label htmlFor="book">Choose Books:  </label>
-            <select value={book} onChange={(e) => { setBook(e.target.value) }}>
+            <label htmlFor="book" className="books">Choose Books:  
+            <select  value={book} onChange={(e) => { setBook(e.target.value) }}>
                   {bookItems.map((s,index)=>(
                           <option key={index} value={s}>{s}</option>
                       ))}
             </select>
             <input
+            className="page"
               type="text"
               placeholder="Page"
               value={page}
@@ -126,6 +135,7 @@ const QueWrite = () => {
               required
             />
             <button onClick={addBook}>Add Book</button>
+            </label>
             </div>
             
             <input
@@ -161,7 +171,7 @@ const QueWrite = () => {
                 }}
               />
             </div>
-            <button style={{width:'200px'}} onClick={publish}>Submit</button>
+            <div className="btn"><button className="btn1"  onClick={publish}>Submit</button></div>
           </div>
         </div>
       }
