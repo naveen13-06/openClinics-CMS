@@ -65,6 +65,7 @@ const router = createBrowserRouter([
     path: "/login",
     element:<Permission />
   },
+
 ]);
 
 function App() {
