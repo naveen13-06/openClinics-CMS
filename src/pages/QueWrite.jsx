@@ -6,7 +6,8 @@ import api from "../api/api"
 import Server from "../Utils/config";
 import { useRef } from "react";
 import LoadingSpinner from "../components/LoadingSpinner";
-import subjects from '../components/subjects'
+import subjects from '../components/subjects';
+import Delete from "../img/delete.png";
 const QueWrite = () => {
   const editorRef = useRef();
   const [loading, setLoading] = useState(false);
@@ -22,7 +23,9 @@ const QueWrite = () => {
   const [bookItems, setBookItems]=useState(subjects[0].books);
   const [book,setBook]=useState(bookItems[0]);
   const [page,setPage]=useState("");
+  const [post,setPost]=useState(state);
   const [booklist,setBooklist]=useState(state?.pageNum.map((s)=>JSON.parse(s)) || []);
+  const [addresses, setAddresses] = useState(state?.files || []);
   const navigate = useNavigate()
   useEffect(()=>{
     console.log(lesson);
@@ -37,6 +40,12 @@ const QueWrite = () => {
   }
   async function publish(){
     setLoading(true);
+    const str = JSON.stringify(ans);
+    var files = addresses.filter((a) => str.includes(a))
+    console.log(files);
+    addresses.map(async (a) => {
+      if (!files.includes(a)) await api.deleteFile(Server.bucketID, a);
+    })
     var bookAndPages=[];
     booklist.map((item)=>{
         bookAndPages.push(JSON.stringify(item));
@@ -50,6 +59,7 @@ const QueWrite = () => {
       lesson: lesson,
       years: year.split(","),
       pageNum:[...bookAndPages],
+      files: files
     }
     try {
         var res;
@@ -63,13 +73,39 @@ const QueWrite = () => {
       } 
     console.log(data);
   }
+  const handleDelete = async ()=>{
+    setLoading(true);
+      try {
+        post.files?.map(async (a)=>{
+          await api.deleteFile(Server.bucketID,a);
+        })
+        await api.deleteQuestion(Server.databaseID,'64413ea96acba3fd2ee7',post.$id);
+        setLoading(false);
+        navigate("/")
+      } catch (err) {
+        console.log(err);
+      }
+  }
+  async function example_image_upload_handler(blobInfo, success, failure, progress) {
+    var formData;
+    const det = await api.uploadMedia(Server.bucketID, blobInfo.blob());
+    const url = `https://appwrite.open-clinics-cms.live/v1/storage/buckets/64343c0ac11d44d86300/files/${det.$id}/view?project=642d6c3be181312b0360&mode=admin`
+    addresses.push(det.$id);
+    success(url);
+    formData = new FormData();
+    formData.append('file', blobInfo.blob(), blobInfo.filename());
+    console.log(blobInfo);
+    return url
+  };
   //console.log(years);
   return (
     <>
       {loading ? <LoadingSpinner /> :
         <div className="add1">
+        {state && <img onClick={()=>{ if (window.confirm('Are you sure you wish to delete this item?'))handleDelete() }} src={Delete} alt="" />
+        }  
           <div className="content1">
-            <textarea
+           <textarea
               type="text"
               placeholder="Question"
               value={que}
@@ -166,7 +202,30 @@ const QueWrite = () => {
                   toolbar: 'insertfile undo redo | formatselect | ' +
                     'bold italic backcolor | alignleft aligncenter ' +
                     'alignright alignjustify | bullist numlist outdent indent | ' +
-                    'removeformat | link',
+                    'removeformat | link image media',
+                    images_upload_handler: example_image_upload_handler,
+                  file_picker_types: 'file media',
+                  file_picker_callback: function (cb, value, meta) {
+                    var input = document.createElement('input');
+                    input.setAttribute('type', 'file');
+                    input.setAttribute('accept', ['video/*', 'audio/*']);
+                    input.onchange = function () {
+                      var file = this.files[0];
+                      var reader = new FileReader();
+                      reader.onload = async function () {
+                        var id = 'blobid' + (new Date()).getTime();
+                        var blobCache = editorRef.current.editorUpload.blobCache;
+                        //var base64 = reader.result.split(',')[1];
+                        var blobInfo = blobCache.create(id, file, 'application/octet-stream');
+                        const url = await example_image_upload_handler(blobInfo, function () { }, function () { }, function () { });
+                        addresses.push(url.$id);
+                        cb(url, { title: file.name });
+                      };
+                      reader.readAsDataURL(file);
+                    };
+
+                    input.click();
+                  },
                   content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
                 }}
               />

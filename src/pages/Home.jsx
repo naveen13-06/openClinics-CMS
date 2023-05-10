@@ -62,10 +62,10 @@ const Home = () => {
         {posts.map((post) => (
           <div className="post" key={path!='questions'?post.cn:post.$id}>
             <div className="content">
-              <Link className="link" to={path!='questions'?`/post/${cat}/${type}/${post.cn}`:`/questions/${cat}/${type}/${post.$id}`}>
+              <Link className="link" to={path!='questions'?`/write?edit=2`:`/questions/write?edit=2`} state={path!='questions'?{...post,cat:cat,subcat:type}:post}>
               {path!='questions' && <span>Card Number {post.cn}</span>}
-                <span>{path!='questions'?post.title:post.questionText.slice(0,30)+'...'}</span>
-                <span>{path!='questions'?post.head:getText(post.answerText).slice(0,20)+'...'}</span>
+                <span>{path!='questions'?post.title:post.questionText}</span>
+                <span>{path!='questions' && post.head}</span>
               </Link>
             </div>
           </div>

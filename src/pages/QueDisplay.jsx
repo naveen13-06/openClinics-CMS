@@ -25,9 +25,7 @@ const QueDisplay = () => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        console.log(cat,type,postId);
         const res = await api.getQuestion(Server.databaseID,'64413ea96acba3fd2ee7',postId)
-        console.log(res);
         setPost(res);
         setLoading(false);
       } catch (err) {

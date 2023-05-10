@@ -4,6 +4,7 @@ import { Editor } from '@tinymce/tinymce-react';
 import { useLocation, useNavigate } from "react-router-dom";
 import api from "../api/api"
 import Server from "../Utils/config";
+import Delete from "../img/delete.png";
 import { useRef } from "react";
 import LoadingSpinner from "../components/LoadingSpinner";
 const Write = () => {
@@ -68,6 +69,8 @@ const Write = () => {
       if (res == null) return;
       alert("Updated Successfully");
       initialCn=null;
+      state={...cards,cat:cat,subcat:subcat};
+      setAddresses(files);
     } catch (err) {
       console.log(err);
     }
@@ -76,18 +79,34 @@ const Write = () => {
     var formData;
     const det = await api.uploadMedia(Server.bucketID, blobInfo.blob());
     const url = `https://appwrite.open-clinics-cms.live/v1/storage/buckets/64343c0ac11d44d86300/files/${det.$id}/view?project=642d6c3be181312b0360&mode=admin`
+    addresses.push(det.$id);
     success(url);
     formData = new FormData();
     formData.append('file', blobInfo.blob(), blobInfo.filename());
     console.log(blobInfo);
     return url
   };
+  const handleDelete = async ()=>{
+    console.log(state);
+    setLoading(true);
+      try {
+        addresses.map(async (a)=>{
+          await api.deleteFile(Server.bucketID,a);
+        })
+        await api.deleteCard(Server.databaseID,Server.collectionID,cat,state.subcat,state.cn);
+        setLoading(false);
+        navigate("/")
+      } catch (err) {
+        console.log(err);
+      }
+  }
   return (
     <>
       {loading ? <LoadingSpinner /> :
         <div className="add">
+        
           <div className="content">
-            <input
+                <input
               type="text"
               placeholder="Head"
               value={head}
@@ -130,17 +149,16 @@ const Write = () => {
                     var input = document.createElement('input');
                     input.setAttribute('type', 'file');
                     input.setAttribute('accept', ['video/*', 'audio/*']);
-
                     input.onchange = function () {
                       var file = this.files[0];
                       var reader = new FileReader();
-
                       reader.onload = async function () {
                         var id = 'blobid' + (new Date()).getTime();
                         var blobCache = editorRef.current.editorUpload.blobCache;
                         //var base64 = reader.result.split(',')[1];
                         var blobInfo = blobCache.create(id, file, 'application/octet-stream');
                         const url = await example_image_upload_handler(blobInfo, function () { }, function () { }, function () { });
+                        addresses.push(url.$id);
                         cb(url, { title: file.name });
                       };
                       reader.readAsDataURL(file);
@@ -186,6 +204,8 @@ const Write = () => {
               </div>
               <div className="buttons">
                 {/* <button>Save as a draft</button> */}
+                {state&&<img onClick={()=>{ if (window.confirm('Are you sure you wish to delete this item?'))handleDelete() }} src={Delete} alt="" />}
+      
                 <button onClick={handleClick}>Publish</button>
               </div>
             </div>
