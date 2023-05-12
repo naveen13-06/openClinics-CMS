@@ -21,29 +21,94 @@ const subjects=[
         {
             title:'Diseases of the Immune System',
             url:'/questions/?subject=pathology&lesson=Diseases of the Immune System'
-        }  
-//     'Neoplasia',
-//     'Infectious Diseases',
-//     'Environmental and Nutritional Diseases',
-//     'Diseases of infancy and childhood',
-//     'Blood vessels',
-//     'The Heart',
-//     'Diseases of WBCs',
-//     'Red blood Cell and Bleeding Disorders','The Lung',
-//     'Head and Neck',
-//     'The Gastrointestinal Tract',
-//     'Liver and Gallbladder',
-//     'The Pancreas',
-//     'The Kidney',
-//     'The Lower Urinary Tract and Male Genital System',
-//     'The Female Genital Tract',
-//     'The Breast',
-//     'The Endocrine System',
-//     'The Skin',
-//     'Bones, Joints, and Soft Tissue Tumors',
-//     'Peripheral Nerves and Skeletal Muscles',
-//     'The Central Nervous System',
-//   'The Eye'
+        },
+        {
+            title:'Neoplasia',
+            url:'/questions/?subject=pathology&lesson=Neoplasia'
+        },
+        {
+            title:'Infectious Diseases',
+            url:'/questions/?subject=pathology&lesson=Infectious Diseases'
+        },{
+            title:'Environmental and Nutritional Diseases',
+            url:'/questions/?subject=pathology&lesson=Environmental and Nutritional Diseases'
+        },
+        {
+            title:'Diseases of infancy and childhood',
+            url:'/questions/?subject=pathology&lesson=Diseases of infancy and childhood'
+        },
+        {
+            title:'Blood vessels',
+            url:'/questions/?subject=pathology&lesson=Blood vessels'
+        },
+        {
+            title:'The Heart',
+            url:'/questions/?subject=pathology&lesson=The Heart'
+        },
+        {
+            title:'Diseases of WBCs',
+            url:'/questions/?subject=pathology&lesson=Diseases of WBCs'
+        },
+        {
+            title:'Red blood Cell and Bleeding Disorders',
+            url:'/questions/?subject=pathology&lesson=Red blood Cell and Bleeding Disorders'
+        },
+        {
+            title:'The Lung',
+            url:'/questions/?subject=pathology&lesson=The Lung'
+        },
+        {
+            title:'Head and Neck',
+            url:'/questions/?subject=pathology&lesson=Head and Neck'
+        },
+        {
+            title:'The Gastrointestinal Tract',
+            url:'/questions/?subject=pathology&lesson=The Gastrointestinal Tract'
+        },
+        {
+            title:'Liver and Gallbladder',
+            url:'/questions/?subject=pathology&lesson=Liver and Gallbladder'
+        },
+        {
+            title:'The Pancreas',
+            url:'/questions/?subject=pathology&lesson=The Pancreas'
+        },
+        {
+            title:'The Kidney',
+            url:'/questions/?subject=pathology&lesson=The Kidney'
+        },
+        {
+            title:'The Lower Urinary Tract and Male Genital System',
+            url:'/questions/?subject=pathology&lesson=The Lower Urinary Tract and Male Genital System'
+        },
+        {
+            title:'The Female Genital Tract',
+            url:'/questions/?subject=pathology&lesson=The Female Genital Tract'
+        },
+        {
+            title:'The Endocrine System',
+            url:'/questions/?subject=pathology&lesson=The Endocrine System'
+        },
+        {
+            title:'The Skin',
+            url:'/questions/?subject=pathology&lesson=The Skin'
+        },
+        {
+            title:'Bones, Joints, and Soft Tissue Tumors',
+            url:'/questions/?subject=pathology&lesson=Bones, Joints, and Soft Tissue Tumors'
+        },
+        {
+            title:'Peripheral Nerves and Skeletal Muscles',
+            url:'/questions/?subject=pathology&lesson=Peripheral Nerves and Skeletal Muscles'
+        },
+        {
+            title:'The Central Nervous System',
+            url:'/questions/?subject=pathology&lesson=The Central Nervous System'
+        },
+        {
+            title:'The Eye',
+            url:'/questions/?subject=pathology&lesson=The Eye'
+        },
         ],
         books:[
             'Robbins and Cotran Pathologic Basis of Disease, 10e-South Asia Edition',
