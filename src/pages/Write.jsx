@@ -22,7 +22,7 @@ const Write = () => {
   // console.log(state?.subcat);
   const med = ["abdomen", "cns", "cvs", "renal", "rs"];
   const og = ["obstetric", "gynaecology"];
-  const pediatrics = ["abdomen", "cns", "cvs", "anthropometry", "rs", "newborn", "headtofoot"];
+  const pediatrics = ["abdomen", "development","cns", "cvs", "anthropometry", "rs", "newborn", "headtofoot"];
   const surgery = ["breast", "varicose vein", "swelling", "ulcer", "abdomen", "hernia", "peripheral arterial disease","thyroid"];
   const [items, setItems] = useState(med);
   useEffect(() => {

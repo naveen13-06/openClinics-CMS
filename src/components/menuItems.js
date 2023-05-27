@@ -45,6 +45,10 @@ const menuItems = [
           url: '/?domain=pediatrics&type=cvs',
         },
         {
+          title: 'Development',
+          url: '/?domain=pediatrics&type=development',
+        },
+        {
           title: 'RS',
           url: '/?domain=pediatrics&type=rs',
         },
