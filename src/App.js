@@ -15,6 +15,7 @@ import "./style.scss"
 import { useContext, useEffect } from "react";
 import { AuthContext } from "./context/authContext";
 import QueDisplay from "./pages/QueDisplay";
+import Delete from "./pages/Delete";
 
 const Layout = () => {
   return (
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
       {
         path: "/questions/:subject/:lesson/:id",
         element: <QueDisplay />,
+      },
+      {
+        path: "/delete-account",
+        element:<Delete />
       }
     ],
   },
@@ -65,6 +70,7 @@ const router = createBrowserRouter([
     path: "/login",
     element:<Permission />
   },
+  
 
 ]);
 
