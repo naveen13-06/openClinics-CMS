@@ -21,7 +21,7 @@ const Write = () => {
   const [addresses, setAddresses] = useState(state?.files || []);
   // console.log(state?.subcat);
   const med = ["abdomen", "cns", "cvs", "renal", "rs"];
-  const og = ["obstetric", "gynaecology"];
+  const og = ["obstetric examination", "gynaecology"];
   const pediatrics = ["abdomen", "development","cns", "cvs", "anthropometry", "rs", "newborn", "headtofoot"];
   const surgery = ["breast", "varicose vein", "swelling", "ulcer", "abdomen", "hernia", "peripheral arterial disease","thyroid"];
   const [items, setItems] = useState(med);

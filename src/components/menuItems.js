@@ -28,8 +28,8 @@ const menuItems = [
     title: 'Og',
       submenu: [
         {
-          title: 'Obstetric',
-          url: '/?domain=og&type=obstetric',
+          title: 'Obstetric examination',
+          url: '/?domain=og&type=obstetric examination',
         },
         {
           title: 'Gynaecology',
