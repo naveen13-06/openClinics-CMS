@@ -575,9 +575,406 @@ const subjects=[
             'book1',
             'book2'
         ]
+    },
+    {
+        subject:'Ophthalmology',
+        submenu:[
+            {
+                title:'Physiology of Eye and Vision',
+                url:'/questions/?subject=Ophthalmology&lesson=Physiology of Eye and Vision'
+            }, 
+            
+            {
+                title:'Errors of Refraction, Accomodation and Asthenopia',
+                url:'/questions/?subject=Ophthalmology&lesson=Errors of Refraction, Accomodation and Asthenopia'
+            }, 
+            {
+                title:'Diseases of Conjunctiva',
+                url:'/questions/?subject=Ophthalmology&lesson=Diseases of Conjunctiva'
+            }, 
+            {
+                title:'Diseases of Cornea',
+                url:'/questions/?subject=Ophthalmology&lesson=Diseases of Cornea'
+            }, 
+            {
+                title:'Diseases of Sclera',
+                url:'/questions/?subject=Ophthalmology&lesson=Diseases of Sclera'
+            }, 
+            {
+                title:'Diseases of Uveal Tract',
+                url:'/questions/?subject=Ophthalmology&lesson=Diseases of Uveal Tract'
+            }, 
+            {
+                title:'Diseases of Lens',
+                url:'/questions/?subject=Ophthalmology&lesson=Diseases of Lens'
+            }, 
+            {
+                title:'Glaucoma',
+                url:'/questions/?subject=Ophthalmology&lesson=Glaucoma'
+            }, 
+            {
+                title:'Diseases of Vitreous',
+                url:'/questions/?subject=Ophthalmology&lesson=Diseases of Vitreous'
+            }, 
+            {
+                title:'Diseases of Retina',
+                url:'/questions/?subject=Ophthalmology&lesson=Diseases of Retina'
+            }, 
+            {
+                title:'Neuro-ophthalmology',
+                url:'/questions/?subject=Ophthalmology&lesson=Neuro-ophthalmology'
+            }, 
+            {
+                title:'Ocular Motility and Strabismus',
+                url:'/questions/?subject=Ophthalmology&lesson=Ocular Motility and Strabismus'
+            }, 
+            {
+                title:'Disorders of Eyelids',
+                url:'/questions/?subject=Ophthalmology&lesson=Disorders of Eyelids'
+            }, 
+            {
+                title:'Diseases of Lacrimal Apparatus',
+                url:'/questions/?subject=Ophthalmology&lesson=Diseases of Lacrimal Apparatus'
+            }, 
+            {
+                title:'Diseases of Orbit',
+                url:'/questions/?subject=Ophthalmology&lesson=Diseases of Orbit'
+            }, 
+            {
+                title:'Ocular injuries',
+                url:'/questions/?subject=Ophthalmology&lesson=Ocular injuries'
+            }, 
+            {
+                title:'Ocular Pharmacology',
+                url:'/questions/?subject=Ophthalmology&lesson=Ocular Pharmacology'
+            }, 
+            {
+                title:'Lasers and Cryotherapy in Ophthalmology',
+                url:'/questions/?subject=Ophthalmology&lesson=Lasers and Cryotherapy in Ophthalmology'
+            }, 
+            {
+                title:'Systemic Ophthalmology',
+                url:'/questions/?subject=Ophthalmology&lesson=Systemic Ophthalmology'
+            }, 
+            {
+                title:'Community Ophthalmology',
+                url:'/questions/?subject=Ophthalmology&lesson=Community Ophthalmology'
+            }, 
+            {
+                title:'Practical Ophthalmology',
+                url:'/questions/?subject=Ophthalmology&lesson=Practical Ophthalmology'
+            }, 
+        ],
+        books:[
+            'book1',
+            'book2'
+        ]
+    },
+    {
+        subject:'Ent',
+        submenu:[
+            {
+                title:'Anatomy of Ear',
+                url:'/questions/?subject=Ent&lesson=Anatomy of Ear'
+            }, 
+            
+            {
+                title:'Audiology and Acoustics',
+                url:'/questions/?subject=Ent&lesson=Audiology and Acoustics'
+            }, 
+            {
+                title:'Assessment of Hearing',
+                url:'/questions/?subject=Ent&lesson=Assessment of Hearing'
+            }, 
+            {
+                title:'Hearing Loss',
+                url:'/questions/?subject=Ent&lesson=Hearing Loss'
+            }, 
+            {
+                title:'Assessment of Vestibular Functions and Disorders',
+                url:'/questions/?subject=Ent&lesson=Assessment of Vestibular Functions and Disorders'
+            }, 
+            {
+                title:'Diseases of External Ear',
+                url:'/questions/?subject=Ent&lesson=Diseases of External Ear'
+            }, 
+            {
+                title:'Eustachian Tube and Its Disorders',
+                url:'/questions/?subject=Ent&lesson=Eustachian Tube and Its Disorders'
+            }, 
+            {
+                title:'Disorders of Middle Ear',
+                url:'/questions/?subject=Ent&lesson=Disorders of Middle Ear'
+            }, 
+            {
+                title:'Cholesteatoma and Chronic Otitis Media',
+                url:'/questions/?subject=Ent&lesson=Cholesteatoma and Chronic Otitis Media'
+            }, 
+            {
+                title:'Complications of Suppurative Otitis Media',
+                url:'/questions/?subject=Ent&lesson=Complications of Suppurative Otitis Media'
+            }, 
+            {
+                title:'Otosclerosis',
+                url:'/questions/?subject=Ent&lesson=Otosclerosis'
+            }, 
+            {
+                title:'Facial Nerve and Disorders',
+                url:'/questions/?subject=Ent&lesson=Facial Nerve and Disorders'
+            }, 
+            {
+                title:'Menieres Disease',
+                url:'/questions/?subject=Ent&lesson=Menieres Disease'
+            }, 
+            {
+                title:'Rehabilitation of Hearing Impaired',
+                url:'/questions/?subject=Ent&lesson=Rehabilitation of Hearing Impaired'
+            }, 
+            {
+                title:'Otalgia',
+                url:'/questions/?subject=Ent&lesson=Otalgia'
+            }, 
+            {
+                title:'Tinnitus',
+                url:'/questions/?subject=Ent&lesson=Tinnitus'
+            }, 
+            {
+                title:'Anatomy and Physiology of Nose',
+                url:'/questions/?subject=Ent&lesson=Anatomy and Physiology of Nose'
+            }, 
+            {
+                title:'Diseases of External Nose and Nasal Vestibule',
+                url:'/questions/?subject=Ent&lesson=Diseases of External Nose and Nasal Vestibule'
+            }, 
+            {
+                title:'Nasal Septum and Diseases',
+                url:'/questions/?subject=Ent&lesson=Nasal Septum and Diseases'
+            }, 
+            {
+                title:'Acute and Chronic Rhinitis',
+                url:'/questions/?subject=Ent&lesson=Acute and Chronic Rhinitis'
+            }, 
+            {
+                title:'Granulomatous Disease of Nose',
+                url:'/questions/?subject=Ent&lesson=Granulomatous Disease of Nose'
+            }, 
+            {
+                title:'Miscellaneous Disorders of Nasal Cavity',
+                url:'/questions/?subject=Ent&lesson=Miscellaneous Disorders of Nasal Cavity'
+            }, 
+            {
+                title:'Allergic Rhinitis',
+                url:'/questions/?subject=Ent&lesson=Allergic Rhinitis'
+            }, 
+            {
+                title:'Vasomotor and Other Forms of Nonallergic Rhinitis',
+                url:'/questions/?subject=Ent&lesson=Vasomotor and Other Forms of Nonallergic Rhinitis'
+            }, 
+            {
+                title:'Nasal Polypi',
+                url:'/questions/?subject=Ent&lesson=Nasal Polypi'
+            }, 
+            {
+                title:'Epistaxis',
+                url:'/questions/?subject=Ent&lesson=Epistaxis'
+            }, 
+            {
+                title:'Trauma to the Face',
+                url:'/questions/?subject=Ent&lesson=Trauma to the Face'
+            }, 
+            {
+                title:'Anatomy and Physiology of Paranasal Sinuses',
+                url:'/questions/?subject=Ent&lesson=Anatomy and Physiology of Paranasal Sinuses'
+            }, 
+            {
+                title:'Chronic Rinosinusitis',
+                url:'/questions/?subject=Ent&lesson=Chronic Rinosinusitis'
+            }, 
+            {
+                title:'Complications of Sinusitis',
+                url:'/questions/?subject=Ent&lesson=Complications of Sinusitis'
+            }, 
+            {
+                title:'Benign and Malignant Lesions of Nasal Cavity',
+                url:'/questions/?subject=Ent&lesson=Benign and Malignant Lesions of Nasal Cavity'
+            }, 
+            {
+                title:'Neoplasms of Paranasal Sinuses',
+                url:'/questions/?subject=Ent&lesson=Neoplasms of Paranasal Sinuses'
+            }, 
+            {
+                title:'Anatomy of Oral Cavity',
+                url:'/questions/?subject=Ent&lesson=Anatomy of Oral Cavity'
+            }, 
+            {
+                title:'Common Disorders of Oral Cavity',
+                url:'/questions/?subject=Ent&lesson=Common Disorders of Oral Cavity'
+            }, 
+            {
+                title:'Benign and Malignant Lesions of Oral Cavity',
+                url:'/questions/?subject=Ent&lesson=Benign and Malignant Lesions of Oral Cavity'
+            }, 
+            {
+                title:'Non-neoplastic Disorders of Salivary Glands',
+                url:'/questions/?subject=Ent&lesson=Non-neoplastic Disorders of Salivary Glands'
+            }, 
+            {
+                title:'Neoplasms of Salivary Glands',
+                url:'/questions/?subject=Ent&lesson=Neoplasms of Salivary Glands'
+            }, 
+            {
+                title:'Anatomy and Physiology of Pharynx',
+                url:'/questions/?subject=Ent&lesson=Anatomy and Physiology of Pharynx'
+            }, 
+            {
+                title:'Adenoids and Other Inflammations of Nasopharynx',
+                url:'/questions/?subject=Ent&lesson=Adenoids and Other Inflammations of Nasopharynx'
+            }, 
+            {
+                title:'Tumours of Nasopharynx',
+                url:'/questions/?subject=Ent&lesson=Tumours of Nasopharynx'
+            }, 
+            {
+                title:'Acute and Chronic Pharyngitis',
+                url:'/questions/?subject=Ent&lesson=Acute and Chronic Pharyngitis'
+            }, 
+            {
+                title:'Acute and Chronic Tonsillitis',
+                url:'/questions/?subject=Ent&lesson=Acute and Chronic Tonsillitis'
+            }, 
+            {
+                title:'Head and Neck Space Infections',
+                url:'/questions/?subject=Ent&lesson=Head and Neck Space Infections'
+            }, 
+            {
+                title:'Tumors of the Oropharynx, Hypopharynx and Pharyngeal Pouch',
+                url:'/questions/?subject=Ent&lesson=Tumors of the Oropharynx, Hypopharynx and Pharyngeal Pouch'
+            }, 
+            {
+                title:'Snoring and Sleep Apnoea',
+                url:'/questions/?subject=Ent&lesson=Snoring and Sleep Apnoea'
+            }, 
+            {
+                title:'Anatomy and Physiology of Larynx',
+                url:'/questions/?subject=Ent&lesson=Anatomy and Physiology of Larynx'
+            }, 
+            {
+                title:'Acute and Chronic Inflammations of Larynx',
+                url:'/questions/?subject=Ent&lesson=Acute and Chronic Inflammations of Larynx'
+            }, 
+            {
+                title:'Congenital Lesions of Larynx and Stridor',
+                url:'/questions/?subject=Ent&lesson=Congenital Lesions of Larynx and Stridor'
+            }, 
+            {
+                title:'Laryngeal Paralysis',
+                url:'/questions/?subject=Ent&lesson=Laryngeal Paralysis'
+            }, 
+            {
+                title:'Benign Tumours and Lesions of Larynx',
+                url:'/questions/?subject=Ent&lesson=Benign Tumours and Lesions of Larynx'
+            }, 
+            {
+                title:'Cancer Larynx',
+                url:'/questions/?subject=Ent&lesson=Cancer Larynx'
+            }, 
+            {
+                title:'Voice and Speech Disorders',
+                url:'/questions/?subject=Ent&lesson=Voice and Speech Disorders'
+            }, 
+            {
+                title:'Tracheostomy and Other Procedures for Airway Management',
+                url:'/questions/?subject=Ent&lesson=Tracheostomy and Other Procedures for Airway Management'
+            }, 
+            {
+                title:'Foreign Bodies of Air Passages',
+                url:'/questions/?subject=Ent&lesson=Foreign Bodies of Air Passages'
+            }, 
+            {
+                title:'Anatomy and Physiology of Oesophagus',
+                url:'/questions/?subject=Ent&lesson=Anatomy and Physiology of Oesophagus'
+            }, 
+            {
+                title:'Disorders of Oesophagus',
+                url:'/questions/?subject=Ent&lesson=Disorders of Oesophagus'
+            }, 
+            {
+                title:'Dysphagia',
+                url:'/questions/?subject=Ent&lesson=Dysphagia'
+            }, 
+            {
+                title:'Foreign Bodies of Food Passages',
+                url:'/questions/?subject=Ent&lesson=Foreign Bodies of Food Passages'
+            }, 
+            {
+                title:'Recent advances',
+                url:'/questions/?subject=Ent&lesson=Recent advances'
+            }, 
+            {
+                title:'Clinical Methods in ENT',
+                url:'/questions/?subject=Ent&lesson=Clinical Methods in ENT'
+            }, 
+            {
+                title:'Neck Masses',
+                url:'/questions/?subject=Ent&lesson=Neck Masses'
+            }, 
+            {
+                title:'Myringotomy',
+                url:'/questions/?subject=Ent&lesson=Myringotomy'
+            }, 
+            {
+                title:'Cortical Mastoidectomy',
+                url:'/questions/?subject=Ent&lesson=Cortical Mastoidectomy'
+            }, 
+            {
+                title:'Radical Mastoidectomy',
+                url:'/questions/?subject=Ent&lesson=Radical Mastoidectomy'
+            }, 
+            {
+                title:'Myringoplasty',
+                url:'/questions/?subject=Ent&lesson=Myringoplasty'
+            }, 
+            {
+                title:'Proof Puncture (Antral Lavage)',
+                url:'/questions/?subject=Ent&lesson=Proof Puncture'
+            }, 
+            {
+                title:'Caldwell-Luc Operation (Anterior Antrostomy)',
+                url:'/questions/?subject=Ent&lesson=Caldwell-Luc Operation'
+            },
+            {
+                title:'Submucous Resection of Nasal Septum',
+                url:'/questions/?subject=Ent&lesson=Submucous Resection of Nasal Septum'
+            }, 
+            {
+                title:'Septoplasty',
+                url:'/questions/?subject=Ent&lesson=Septoplasty'
+            }, 
+            {
+                title:'Diagnostic Nasal Endoscopy',
+                url:'/questions/?subject=Ent&lesson=Diagnostic Nasal Endoscopy'
+            }, 
+            {
+                title:'Endoscopic Sinus Surgery',
+                url:'/questions/?subject=Ent&lesson=Endoscopic Sinus Surgery'
+            }, 
+            {
+                title:'Tonsillectomy',
+                url:'/questions/?subject=Ent&lesson=Tonsillectomy'
+            }, 
+            {
+                title:'Appendix',
+                url:'/questions/?subject=Ent&lesson=Appendix'
+            }, 
+        ],
+        books:[
+            'book1',
+            'book2'
+        ]
     }
 ]
 export default subjects
+
 
     
 
