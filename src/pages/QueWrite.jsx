@@ -170,11 +170,12 @@ const QueWrite = () => {
               onChange={(e) => setPage(e.target.value)}
               required
             />
-            <button onClick={addBook}>Add Book</button>
+            <button className="addBook" onClick={addBook}>Add Book</button>
             </label>
             </div>
             
             <input
+            className="yearsInput"
               type="text"
               placeholder="Write years seperated by comma"
               value={year}
@@ -185,7 +186,7 @@ const QueWrite = () => {
             
 
             <div className="editorContainer">
-            <p>Answer</p>
+            <h3>Answer</h3>
               <Editor
                 onInit={(evt, editor) => editorRef.current = editor}
                 value={ans}
