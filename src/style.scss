@@ -1,4 +1,4 @@
-$lightGreen: #0175C2;
+$lightGreen: #0175c2;
 
 .app {
   display: flex;
@@ -169,16 +169,17 @@ $lightGreen: #0175C2;
       cursor: pointer;
       width: 100%;
     }
-    
+
     button span {
       margin-left: 3px;
     }
-    
-    .menu-items > a, .menu-items button {
+
+    .menu-items > a,
+    .menu-items button {
       text-align: left;
       padding: 0.7rem 1rem;
     }
-    
+
     .menu-items a:hover,
     .menu-items button:hover {
       background-color: #f2f2f2;
@@ -196,10 +197,10 @@ $lightGreen: #0175C2;
       display: block;
     }
     .dropdown .dropdown-submenu {
-  position: absolute;
-  left: 100%;
-  top: -7px;
-}
+      position: absolute;
+      left: 100%;
+      top: -7px;
+    }
     //FOOTER
 
     footer {
@@ -211,7 +212,7 @@ $lightGreen: #0175C2;
       justify-content: space-between;
       font-size: 12px;
       color: white;
-      a{
+      a {
         color: white;
       }
       img {
@@ -227,7 +228,7 @@ $lightGreen: #0175C2;
         display: flex;
         flex-direction: column;
         gap: 1px;
-        .post:hover{
+        .post:hover {
           background-color: #76adec;
           transform: scale(1.05);
 
@@ -239,21 +240,21 @@ $lightGreen: #0175C2;
           margin: auto;
           width: 60%;
           border: 3px solid rgb(152, 189, 245);
-          
+
           // padding: 10px;
           .content {
             flex: 3;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            .link{
+            .link {
               padding: 7px;
             }
-            
+
             h1 {
               font-size: 48px;
             }
-            span{
+            span {
               padding-right: 10px;
               padding-left: 10px;
             }
@@ -384,37 +385,78 @@ $lightGreen: #0175C2;
     }
 
     //WRITE
-    .add1{
-
-      .content1{
+    .add1 {
+      .content1 {
         flex: 5;
         display: flex;
         flex-direction: column;
         gap: 20px;
-        select{
+
+        h3 {
+          padding-bottom: 10px;
+          color: #0175c2;
+        }
+
+        textarea {
+          border-radius: 10px;
+          padding: 20px;
+        }
+
+        .page {
+          border-radius: 10px;
+          padding: 12px;
+          border: 1px solid grey;
+          width: 50px !important;
+        }
+
+        .addBook, .btn1 {
+          border-radius: 10px;
+          background-color: #0175c2;
+          border: none;
+          padding: 0px 10px !important;
+          color: white;
+          font-weight: bold;
+          height: 40px;
+        }
+
+        .yearsInput {
+          border-radius: 10px;
+          padding: 12px;
+          border: 1px solid grey;
+        }
+
+        select {
           width: 25%;
           padding: 12px;
           margin-right: 12%;
-          margin-left:10px;
+          margin-left: 10px;
           border: 1px solid #ccc;
-          border-radius: 4px;
+          border-radius: 10px;
           resize: vertical;
+
+          // for arrow
+          background: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0Ljk1IDEwIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2ZmZjt9LmNscy0ye2ZpbGw6IzQ0NDt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPmFycm93czwvdGl0bGU+PHJlY3QgY2xhc3M9ImNscy0xIiB3aWR0aD0iNC45NSIgaGVpZ2h0PSIxMCIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMiIgcG9pbnRzPSIxLjQxIDQuNjcgMi40OCAzLjE4IDMuNTQgNC42NyAxLjQxIDQuNjciLz48cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iMy41NCA1LjMzIDIuNDggNi44MiAxLjQxIDUuMzMgMy41NCA1LjMzIi8+PC9zdmc+)
+            no-repeat;
+          background-position: right 10px top; /* Change the px value here to change the distance */
+          -moz-appearance: none;
+          -webkit-appearance: none;
+          appearance: none;
         }
-        .books{
-          display:flex;
-          flex-direction:row;
+        .books {
+          display: flex;
+          flex-direction: row;
           margin-top: 20px;
         }
-        .page{
-          width:25%;
+        .page {
+          width: 25%;
           margin-right: 4%;
         }
-        .btn{
+        .btn {
           display: flex;
-  justify-content: flex-end;
-  align-items: end;
+          justify-content: flex-end;
+          align-items: end;
         }
-        .btn1{
+        .btn1 {
           width: 20%;
         }
       }
@@ -489,34 +531,34 @@ $lightGreen: #0175C2;
         .item {
           border: 1px solid lightgray;
           padding: 10px;
-          flex:1;
+          flex: 1;
           display: flex;
           flex-direction: column;
           justify-content: space-between;
           font-size: 12px;
           color: #555;
 
-          h1{
+          h1 {
             font-size: 20px;
           }
 
-          .file{
+          .file {
             text-decoration: underline;
             cursor: pointer;
           }
 
-          .buttons{
+          .buttons {
             display: flex;
             justify-content: space-between;
 
-            :first-child{
+            :first-child {
               cursor: pointer;
               color: teal;
               background-color: white;
               border: 1px solid teal;
               padding: 3px 5px;
             }
-            :last-child{
+            :last-child {
               cursor: pointer;
               color: white;
               background-color: teal;
@@ -525,7 +567,7 @@ $lightGreen: #0175C2;
             }
           }
 
-          .cat{
+          .cat {
             display: flex;
             align-items: center;
             gap: 2px;
