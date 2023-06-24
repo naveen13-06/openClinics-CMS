@@ -971,6 +971,338 @@ const subjects=[
             'book1',
             'book2'
         ]
+    },
+    {
+        subject:'Physiology',
+        submenu:[
+            {
+                title:'General Physiology',
+                url:'/questions/?subject=Physiology&lesson=General Physiology'
+            }, 
+            
+            {
+                title:'Introduction and Hemopoiesis',
+                url:'/questions/?subject=Physiology&lesson=Introduction and Hemopoiesis'
+            }, 
+            {
+                title:'RBCs and Blood Transfusion',
+                url:'/questions/?subject=Physiology&lesson=RBCs and Blood Transfusion'
+            }, 
+            {
+                title:'WBCs',
+                url:'/questions/?subject=Physiology&lesson=WBCs'
+            }, 
+            {
+                title:'Platelets',
+                url:'/questions/?subject=Physiology&lesson=Platelets'
+            }, 
+            {
+                title:'Nerve',
+                url:'/questions/?subject=Physiology&lesson=Nerve'
+            }, 
+            {
+                title:'Neuromuscular junction',
+                url:'/questions/?subject=Physiology&lesson=Neuromuscular junction'
+            }, 
+            {
+                title:'Muscles',
+                url:'/questions/?subject=Physiology&lesson=Muscles'
+            }, 
+            {
+                title:'Autonomic Nervous System',
+                url:'/questions/?subject=Physiology&lesson=Autonomic Nervous System'
+            }, 
+            {
+                title:'General Introduction',
+                url:'/questions/?subject=Physiology&lesson=General Introduction'
+            }, 
+            {
+                title:'Heart',
+                url:'/questions/?subject=Physiology&lesson=Heart'
+            }, 
+            {
+                title:'Circulation',
+                url:'/questions/?subject=Physiology&lesson=Circulation'
+            }, 
+            {
+                title:'Applied and Clinical Aspects',
+                url:'/questions/?subject=Physiology&lesson=Applied and Clinical Aspects'
+            }, 
+            {
+                title:'General Reproductive Physiology',
+                url:'/questions/?subject=Physiology&lesson=General Reproductive Physiology'
+            }, 
+            {
+                title:'Male Reproductive Physiology',
+                url:'/questions/?subject=Physiology&lesson=Male Reproductive Physiology'
+            }, 
+            {
+                title:'Female Reproductive Physiology',
+                url:'/questions/?subject=Physiology&lesson=Female Reproductive Physiology'
+            }, 
+            {
+                title:'Physiology of Conception, Pregnancy, Lactation and Contraception',
+                url:'/questions/?subject=Physiology&lesson=Physiology of Conception, Pregnancy, Lactation and Contraception'
+            }, 
+            {
+                title:'Introduction to GI System',
+                url:'/questions/?subject=Physiology&lesson=Introduction to GI System'
+            }, 
+            {
+                title:'GI Secretions',
+                url:'/questions/?subject=Physiology&lesson=GI Secretions'
+            }, 
+            {
+                title:'GI Motility',
+                url:'/questions/?subject=Physiology&lesson=GI Motility'
+            }, 
+            {
+                title:'Digestion and Absorption',
+                url:'/questions/?subject=Physiology&lesson=Digestion and Absorption'
+            }, 
+            {
+                title:'Renal Physiology',
+                url:'/questions/?subject=Physiology&lesson=Renal Physiology'
+            }, 
+            {
+                title:'Endocrine Physiology',
+                url:'/questions/?subject=Physiology&lesson=Endocrine Physiology'
+            }, 
+            {
+                title:'General Reproductive Physiology',
+                url:'/questions/?subject=Physiology&lesson=General Reproductive Physiology'
+            }, 
+            {
+                title:'Male Reproductive Physiology',
+                url:'/questions/?subject=Physiology&lesson=Male Reproductive Physiology'
+            }, 
+            {
+                title:'Female Reproductive Physiology',
+                url:'/questions/?subject=Physiology&lesson=Female Reproductive Physiology'
+            }, 
+            {
+                title:'Physiology of Conception, Pregnancy, Lactation and Contraception',
+                url:'/questions/?subject=Physiology&lesson=Physiology of Conception, Pregnancy, Lactation and Contraception'
+            }, 
+            {
+                title:'Introduction',
+                url:'/questions/?subject=Physiology&lesson=Introduction'
+            }, 
+            {
+                title:'The Sensory System',
+                url:'/questions/?subject=Physiology&lesson=The Sensory System'
+            }, 
+            {
+                title:'The Motor System',
+                url:'/questions/?subject=Physiology&lesson=The Motor System'
+            }, 
+            {
+                title:'Hypothalamus, EEG and Sleep; Limbic functions and Higher functions of Brain and CSF',
+                url:'/questions/?subject=Physiology&lesson=Hypothalamus'
+            }, 
+            {
+                title:'Vision',
+                url:'/questions/?subject=Physiology&lesson=Vision'
+            }, 
+            {
+                title:'Hearing',
+                url:'/questions/?subject=Physiology&lesson=Hearing'
+            }, 
+            {
+                title:'Smell and Taste',
+                url:'/questions/?subject=Physiology&lesson=Smell and Taste'
+            }, 
+            {
+                title:'Others',
+                url:'/questions/?subject=Physiology&lesson=Others'
+            }, 
+        ],
+        books:[
+            'book1',
+            'book2'
+        ]
+    },
+    {
+        subject:'Biochemistry',
+        submenu:[
+            {
+                title:'Subcellular Organelles and Cell Membranes',
+                url:'/questions/?subject=Biochemistry&lesson=Subcellular Organelles and Cell Membranes'
+            }, 
+            
+            {
+                title:'Enzymology: General concepts, Enzyme Kinetics, Isoenzymes and Clinical Enzymology',
+                url:'/questions/?subject=Biochemistry&lesson=Enzymology'
+            }, 
+            {
+                title:'Liver and Gastric Function Tests',
+                url:'/questions/?subject=Biochemistry&lesson=Liver and Gastric Function Tests'
+            }, 
+            {
+                title:'Kidney Function Tests',
+                url:'/questions/?subject=Biochemistry&lesson=Kidney Function Tests'
+            }, 
+            {
+                title:'Plasma Proteins',
+                url:'/questions/?subject=Biochemistry&lesson=Plasma Proteins'
+            }, 
+            {
+                title:'Acid-Base Balance and pH',
+                url:'/questions/?subject=Biochemistry&lesson=Acid-Base Balance and pH'
+            }, 
+            {
+                title:'Water Balance, Electrolyte Balance and Body Fluids',
+                url:'/questions/?subject=Biochemistry&lesson=Water Balance, Electrolyte Balance and Body Fluids'
+            }, 
+            {
+                title:'Free Radicals and Antioxidants',
+                url:'/questions/?subject=Biochemistry&lesson=Free Radicals and Antioxidants'
+            }, 
+            {
+                title:'Detoxification and Biotransformation of Xenobiotics',
+                url:'/questions/?subject=Biochemistry&lesson=Detoxification and Biotransformation of Xenobiotics'
+            }, 
+            {
+                title:'Thyroid Function Tests',
+                url:'/questions/?subject=Biochemistry&lesson=Thyroid Function Tests'
+            }, 
+            {
+                title:'Chemistry and Overview',
+                url:'/questions/?subject=Biochemistry&lesson=Chemistry and Overview'
+            }, 
+            {
+                title:'Metabolic Pathways of Glucose',
+                url:'/questions/?subject=Biochemistry&lesson=Metabolic Pathways of Glucose'
+            }, 
+            {
+                title:'Regulation of Blood Glucose, Insulin and Diabetes Mellitus',
+                url:'/questions/?subject=Biochemistry&lesson=Regulation of Blood Glucose, Insulin and Diabetes Mellitus'
+            }, 
+            {
+                title:'Metabolic Pathways of Carbohydrates other than Glucose',
+                url:'/questions/?subject=Biochemistry&lesson=Metabolic Pathways of Carbohydrates other than Glucose'
+            }, 
+            {
+                title:'Citric Acid Cycle',
+                url:'/questions/?subject=Biochemistry&lesson=Citric Acid Cycle'
+            }, 
+            {
+                title:'Chemistry of Lipids',
+                url:'/questions/?subject=Biochemistry&lesson=Chemistry of Lipids'
+            }, 
+            {
+                title:'Metabolism of Fatty Acids',
+                url:'/questions/?subject=Biochemistry&lesson=Metabolism of Fatty Acids'
+            }, 
+            {
+                title:'Cholesterol and Lipoproteins',
+                url:'/questions/?subject=Biochemistry&lesson=Cholesterol and Lipoproteins'
+            }, 
+            {
+                title:'Cardiovascular Diseases, Biomarkers of CVD and Hyperlipidemias',
+                url:'/questions/?subject=Biochemistry&lesson=Cardiovascular Diseases, Biomarkers of CVD and Hyperlipidemias'
+            }, 
+            {
+                title:'Medium Chain Fatty Acid, Polyunsaturated Fatty Acid, Prostaglandins and Compound Lipids',
+                url:'/questions/?subject=Biochemistry&lesson=Medium Chain Fatty Acid'
+            }, 
+            {
+                title:'Chemistry Of Proteins and Amino Acids',
+                url:'/questions/?subject=Biochemistry&lesson=Chemistry Of Proteins and Amino Acids'
+            }, 
+            {
+                title:'Urea Cycle and One-carbon Metabolism',
+                url:'/questions/?subject=Biochemistry&lesson=Urea Cycle and One-carbon Metabolism'
+            }, 
+            {
+                title:'Metabolism of Aliphatic Amino Acids',
+                url:'/questions/?subject=Biochemistry&lesson=Metabolism of Aliphatic Amino Acids'
+            }, 
+            {
+                title:'Aromatic & Heterocyclic Amino Acids',
+                url:'/questions/?subject=Biochemistry&lesson=Aromatic & Heterocyclic Amino Acids'
+            }, 
+            {
+                title:'Fat Soluble Vitamins',
+                url:'/questions/?subject=Biochemistry&lesson=Fat Soluble Vitamins'
+            }, 
+            {
+                title:'Water Soluble Vitamins',
+                url:'/questions/?subject=Biochemistry&lesson=Water Soluble Vitamins'
+            }, 
+            {
+                title:'Mineral Metabolism and Abnormalities',
+                url:'/questions/?subject=Biochemistry&lesson=Mineral Metabolism and Abnormalities'
+            }, 
+            {
+                title:'Energy Metabolism and Nutrition',
+                url:'/questions/?subject=Biochemistry&lesson=Energy Metabolism and Nutrition'
+            }, 
+            {
+                title:'Heavy Metal Poisons and Environment Pollution',
+                url:'/questions/?subject=Biochemistry&lesson=Heavy Metal Poisons and Environment Pollution'
+            }, 
+            {
+                title:'Nucleotides: Chemistry and function',
+                url:'/questions/?subject=Biochemistry&lesson=Nucleotides'
+            }, 
+            {
+                title:'DNA: Structure, Organization and Replication',
+                url:'/questions/?subject=Biochemistry&lesson=DNA'
+            }, 
+            {
+                title:'Transcription and Translation',
+                url:'/questions/?subject=Biochemistry&lesson=Transcription and Translation'
+            }, 
+            {
+                title:'Inheritance, Mutations, Cell Cycle and Control of Gene Expression',
+                url:'/questions/?subject=Biochemistry&lesson=Inheritance'
+            }, 
+            {
+                title:'Recombinant DNA Technology and Gene Therapy',
+                url:'/questions/?subject=Biochemistry&lesson=Recombinant DNA Technology'
+            }, 
+            {
+                title:'Molecular Diagnostics',
+                url:'/questions/?subject=Biochemistry&lesson=Molecular Diagnostics'
+            }, 
+            {
+                title:'Hormones',
+                url:'/questions/?subject=Biochemistry&lesson=Hormones'
+            }, 
+            {
+                title:'Immunochemistry',
+                url:'/questions/?subject=Biochemistry&lesson=Immunochemistry'
+            }, 
+            {
+                title:'Biochemistry of HIV and AIDS',
+                url:'/questions/?subject=Biochemistry&lesson=Biochemistry of HIV and AIDS'
+            }, 
+            {
+                title:'Biochemistry of Cancer',
+                url:'/questions/?subject=Biochemistry&lesson=Biochemistry of Cancer'
+            }, 
+            {
+                title:'Clinical Laboratory Practice',
+                url:'/questions/?subject=Biochemistry&lesson=Clinical Laboratory Practice'
+            }, 
+            {
+                title:'Isotopes',
+                url:'/questions/?subject=Biochemistry&lesson=Isotopes'
+            }, 
+            {
+                title:'Heme and Hemoglobin',
+                url:'/questions/?subject=Biochemistry&lesson=Heme and Hemoglobin'
+            }, 
+            {
+                title:'Biological Oxidation and Electron Transport Chain',
+                url:'/questions/?subject=Biochemistry&lesson=Biological Oxidation and Electron Transport Chain'
+            }, 
+        ],
+        books:[
+            'book1',
+            'book2'
+        ]
     }
 ]
 export default subjects

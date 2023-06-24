@@ -51,7 +51,7 @@ const QueWrite = () => {
         bookAndPages.push(JSON.stringify(item));
     })
     const data = {
-      answerText:JSON.stringify(ans),
+      answerText:ans,
       questionText: que,
       board: board,
       marks: marks,
@@ -67,7 +67,7 @@ const QueWrite = () => {
         else res=await api.updateQuestion(Server.databaseID, "64413ea96acba3fd2ee7",state.$id,data);   
         setLoading(false);
         if (res == null) return;
-        navigate("/questions");
+        navigate(`/questions/?subject=${subject}&lesson=${lesson}`);
       } catch (err) {
         console.log(err);
       } 
@@ -81,7 +81,7 @@ const QueWrite = () => {
         })
         await api.deleteQuestion(Server.databaseID,'64413ea96acba3fd2ee7',post.$id);
         setLoading(false);
-        navigate("/")
+        navigate("/questions")
       } catch (err) {
         console.log(err);
       }
@@ -120,7 +120,9 @@ const QueWrite = () => {
                 </label>
             <label htmlFor="marks">Choose marks:
             <select value={marks} onChange={(e) => { setMarks(e.target.value) }}>
+                    <option value="2"  >2 marks</option>
                     <option value="5"  >5 marks</option>
+                    <option value="10"  >10 marks</option>
                     <option value="15" >15 marks</option>
             </select>
             </label>
