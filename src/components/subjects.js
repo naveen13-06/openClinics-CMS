@@ -111,10 +111,9 @@ const subjects=[
         },
         ],
         books:[
-            'Robbins and Cotran Pathologic Basis of Disease, 10e-South Asia Edition',
-            'Textbook of Pathology - Harsh Mohan - 8th Edition',
-            'Textbook of Haematology - Tejindar Singh',
-            'Exam Preparatory Manual for Undergraduates Pathology - Ramdaas Nayak'
+            'Robbins and Cotran Pathologic Basis of Disease, 10e-South Asia Edition Vol-1',
+            'Robbins and Cotran Pathologic Basis of Disease, 10e-South Asia Edition Vol-2'
+
         ]
     },
     {
@@ -314,8 +313,7 @@ const subjects=[
             }, 
         ],
         books:[
-            'book1',
-            'book2'
+            'Essentials of Medical Microbiology By Apurba S Sastry 3e'
         ]
     },
     {
@@ -572,8 +570,7 @@ const subjects=[
             
         ],
         books:[
-            'book1',
-            'book2'
+            'Essentials of Medical Pharmacology by K. D. Tripathi 8th edition'
         ]
     },
     {
@@ -666,8 +663,7 @@ const subjects=[
             }, 
         ],
         books:[
-            'book1',
-            'book2'
+            'Comprehensive Ophthalmology - comprehensive ophthalmology 8th edition by AK KHURANA'
         ]
     },
     {
@@ -936,11 +932,11 @@ const subjects=[
             }, 
             {
                 title:'Proof Puncture (Antral Lavage)',
-                url:'/questions/?subject=Ent&lesson=Proof Puncture'
+                url:'/questions/?subject=Ent&lesson=Proof Puncture (Antral Lavage)'
             }, 
             {
                 title:'Caldwell-Luc Operation (Anterior Antrostomy)',
-                url:'/questions/?subject=Ent&lesson=Caldwell-Luc Operation'
+                url:'/questions/?subject=Ent&lesson=Caldwell-Luc Operation (Anterior Antrostomy)'
             },
             {
                 title:'Submucous Resection of Nasal Septum',
@@ -968,8 +964,8 @@ const subjects=[
             }, 
         ],
         books:[
-            'book1',
-            'book2'
+            'Dhingra\'s Diseases Of Ear, Nose And Throat & Head And Neck Surgery 8e'
+
         ]
     },
     {
@@ -1098,7 +1094,7 @@ const subjects=[
             }, 
             {
                 title:'Hypothalamus, EEG and Sleep; Limbic functions and Higher functions of Brain and CSF',
-                url:'/questions/?subject=Physiology&lesson=Hypothalamus'
+                url:'/questions/?subject=Physiology&lesson=Hypothalamus, EEG and Sleep; Limbic functions and Higher functions of Brain and CSF'
             }, 
             {
                 title:'Vision',
@@ -1118,8 +1114,7 @@ const subjects=[
             }, 
         ],
         books:[
-            'book1',
-            'book2'
+            'Textbook Of Medical Physiology 4th Ed (2022) by G K Pal'
         ]
     },
     {
@@ -1132,7 +1127,7 @@ const subjects=[
             
             {
                 title:'Enzymology: General concepts, Enzyme Kinetics, Isoenzymes and Clinical Enzymology',
-                url:'/questions/?subject=Biochemistry&lesson=Enzymology'
+                url:'/questions/?subject=Biochemistry&lesson=Enzymology: General concepts, Enzyme Kinetics, Isoenzymes and Clinical Enzymology'
             }, 
             {
                 title:'Liver and Gastric Function Tests',
@@ -1204,7 +1199,7 @@ const subjects=[
             }, 
             {
                 title:'Medium Chain Fatty Acid, Polyunsaturated Fatty Acid, Prostaglandins and Compound Lipids',
-                url:'/questions/?subject=Biochemistry&lesson=Medium Chain Fatty Acid'
+                url:'/questions/?subject=Biochemistry&lesson=Medium Chain Fatty Acid, Polyunsaturated Fatty Acid, Prostaglandins and Compound Lipids'
             }, 
             {
                 title:'Chemistry Of Proteins and Amino Acids',
@@ -1244,11 +1239,11 @@ const subjects=[
             }, 
             {
                 title:'Nucleotides: Chemistry and function',
-                url:'/questions/?subject=Biochemistry&lesson=Nucleotides'
+                url:'/questions/?subject=Biochemistry&lesson=Nucleotides: Chemistry and function8'
             }, 
             {
                 title:'DNA: Structure, Organization and Replication',
-                url:'/questions/?subject=Biochemistry&lesson=DNA'
+                url:'/questions/?subject=Biochemistry&lesson=DNA: Structure, Organization and Replication'
             }, 
             {
                 title:'Transcription and Translation',
@@ -1256,11 +1251,11 @@ const subjects=[
             }, 
             {
                 title:'Inheritance, Mutations, Cell Cycle and Control of Gene Expression',
-                url:'/questions/?subject=Biochemistry&lesson=Inheritance'
+                url:'/questions/?subject=Biochemistry&lesson=Inheritance, Mutations, Cell Cycle and Control of Gene Expression'
             }, 
             {
                 title:'Recombinant DNA Technology and Gene Therapy',
-                url:'/questions/?subject=Biochemistry&lesson=Recombinant DNA Technology'
+                url:'/questions/?subject=Biochemistry&lesson=Recombinant DNA Technology and Gene Therapy'
             }, 
             {
                 title:'Molecular Diagnostics',
@@ -1300,8 +1295,7 @@ const subjects=[
             }, 
         ],
         books:[
-            'book1',
-            'book2'
+            'Textbook of Biochemistry for Medical Students by DM Vasudevan 10th edition'
         ]
     }
 ]

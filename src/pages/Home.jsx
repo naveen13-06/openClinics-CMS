@@ -24,13 +24,17 @@ const Home = () => {
         console.log(cat,type);
         const res =path!='questions'? await api.listDocuments(Server.databaseID,Server.collectionID,cat,type)
         :await api.listQuestions(Server.databaseID,'64413ea96acba3fd2ee7',cat,type);
+        path=='questions'&& res.documents.sort((a, b) => {
+          return a.marks-b.marks;
+      });
         path!='questions'?res.documents[0].cards.map((card)=>{
           if(card!=null) setPosts((prev)=>{return [...prev,JSON.parse(card)]});
         }) :
         res.documents.map((doc)=>{
           if(doc!=null) setPosts((prev)=>{return [...prev,doc]});
         });
-        console.log(res);
+        
+   
         // res.documents.map((types) =>{
         //   if(types.cards.length!=0){
         //     types.cards.map((cards) =>{
@@ -39,6 +43,9 @@ const Home = () => {
         //     })
         //   }
         // })
+      
+        
+      
       } catch (err) {
         console.log(err);
       }
@@ -63,9 +70,9 @@ const Home = () => {
           <div className="post" key={path!='questions'?post.cn:post.$id}>
             <div className="content">
               <Link className="link" to={path!='questions'?`/write?edit=2`:`/questions/write?edit=2`} state={path!='questions'?{...post,cat:cat,subcat:type}:post}>
-              {path!='questions' && <span>{index+1}</span>}
+              {path!='questions'&&<span>{index+1}</span>}
                 <span>{path!='questions'?post.head:post.questionText}</span>
-                <span>{path!='questions' && post.title}</span>
+                <span>{path!='questions' ? post.title:post.marks+"m"}</span>
               </Link>
             </div>
           </div>

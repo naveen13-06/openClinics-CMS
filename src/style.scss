@@ -142,6 +142,11 @@ $lightGreen: #0175c2;
       background-color: #fff;
       border-radius: 0.5rem;
       display: none;
+      
+    }
+    .scroll{
+      height: 300px;
+   overflow: auto;
     }
     .menus {
       display: flex;
