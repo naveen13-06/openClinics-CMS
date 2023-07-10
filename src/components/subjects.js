@@ -1297,12 +1297,479 @@ const subjects=[
         books:[
             'Textbook of Biochemistry for Medical Students by DM Vasudevan 10th edition'
         ]
+    },
+    {
+        subject:'Anatomy',
+        submenu:[
+            {
+                title:'General Anatomy',
+                url:'/questions/?subject=Anatomy&lesson=General Anatomy'
+            }, 
+            
+            {
+                title:'Axilla and Arm',
+                url:'/questions/?subject=Anatomy&lesson=Axilla and Arm'
+            }, 
+            {
+                title:'Forearm',
+                url:'/questions/?subject=Anatomy&lesson=Forearm'
+            }, 
+            {
+                title:'Hand',
+                url:'/questions/?subject=Anatomy&lesson=Hand'
+            }, 
+            {
+                title:'Upper limb-Joints',
+                url:'/questions/?subject=Anatomy&lesson=Upper limb-Joints'
+            }, 
+            {
+                title:'Upper limb-Neurovasculature',
+                url:'/questions/?subject=Anatomy&lesson=Upper limb-Neurovasculature'
+            }, 
+            {
+                title:'Thigh and Gluteal region',
+                url:'/questions/?subject=Anatomy&lesson=Thigh and Gluteal region'
+            }, 
+            {
+                title:'Leg',
+                url:'/questions/?subject=Anatomy&lesson=Leg'
+            }, 
+            {
+                title:'Foot',
+                url:'/questions/?subject=Anatomy&lesson=Foot'
+            }, 
+            {
+                title:'Lower limb-Joints',
+                url:'/questions/?subject=Anatomy&lesson=Lower limb-Joints'
+            }, 
+            {
+                title:'Lower limb-Neurovasculature',
+                url:'/questions/?subject=Anatomy&lesson=Lower limb-Neurovasculature'
+            }, 
+            {
+                title:'Bones, Joints and Intercostal space of Thorax',
+                url:'/questions/?subject=Anatomy&lesson=Bones, Joints and Intercostal space of Thorax'
+            }, 
+            {
+                title:'Lungs and Pleura',
+                url:'/questions/?subject=Anatomy&lesson=Lungs and Pleura'
+            }, 
+            {
+                title:'Mediastinum and Heart',
+                url:'/questions/?subject=Anatomy&lesson=Mediastinum and Heart'
+            }, 
+            {
+                title:'SVC, Aorta, Pulmonary Trunk, Thymus, Trachea, Oesophagus, Thoracic duct and Azygous System',
+                url:'/questions/?subject=Anatomy&lesson=SVC, Aorta, Pulmonary Trunk, Thymus, Trachea, Oesophagus, Thoracic duct and Azygous System'
+            }, 
+            {
+                title:'Anterior Abdominal Wall',
+                url:'/questions/?subject=Anatomy&lesson=Anterior Abdominal Wall'
+            }, 
+            {
+                title:'Bones and Joints of Abdomen',
+                url:'/questions/?subject=Anatomy&lesson=Bones and Joints of Abdomen'
+            }, 
+            {
+                title:'Inguinal region',
+                url:'/questions/?subject=Anatomy&lesson=Inguinal region'
+            }, 
+            {
+                title:'Male external Genital Organs',
+                url:'/questions/?subject=Anatomy&lesson=Male external Genital Organs'
+            }, 
+            {
+                title:'Abdominal Cavity and Peritoneum',
+                url:'/questions/?subject=Anatomy&lesson=Abdominal Cavity and Peritoneum'
+            }, 
+            {
+                title:'Liver, Gall Bladder, Duodenum, Pancreas and Portal vein',
+                url:'/questions/?subject=Anatomy&lesson=Liver, Gall Bladder, Duodenum, Pancreas and Portal vein'
+            }, 
+            {
+                title:'Intestines',
+                url:'/questions/?subject=Anatomy&lesson=Intestines'
+            }, 
+            {
+                title:'Kidney, Ureters and Suprarenal Gland',
+                url:'/questions/?subject=Anatomy&lesson=Kidney, Ureters and Suprarenal Gland'
+            }, 
+            {
+                title:'Posterior Abdominal Wall and Associated Structures',
+                url:'/questions/?subject=Anatomy&lesson=Posterior Abdominal Wall and Associated Structures'
+            }, 
+            {
+                title:'Pelvis',
+                url:'/questions/?subject=Anatomy&lesson=Pelvis'
+            }, 
+            {
+                title:'Pelvic Walls, Associated soft tissue Structures and Contents',
+                url:'/questions/?subject=Anatomy&lesson=Pelvic Walls, Associated soft tissue Structures and Contents'
+            }, 
+            {
+                title:'Perineum',
+                url:'/questions/?subject=Anatomy&lesson=Perineum'
+            }, 
+            {
+                title:'Urinary Bladder and Urethra',
+                url:'/questions/?subject=Anatomy&lesson=Urinary Bladder and Urethra'
+            }, 
+            {
+                title:'Male and Female Genital Organs',
+                url:'/questions/?subject=Anatomy&lesson=Male and Female Genital Organs'
+            }, 
+            {
+                title:'Rectum and Anal Canal',
+                url:'/questions/?subject=Anatomy&lesson=Rectum and Anal Canal'
+            }, 
+            {
+                title:'Pharynx and Palate',
+                url:'/questions/?subject=Anatomy&lesson=Pharynx and Palate'
+            }, 
+            {
+                title:'Scalp, Temple and Face',
+                url:'/questions/?subject=Anatomy&lesson=Scalp, Temple and Face'
+            }, 
+            {
+                title:'Neck and Cervical Spinal Column',
+                url:'/questions/?subject=Anatomy&lesson=Neck and Cervical Spinal Column'
+            }, 
+            {
+                title:'Parotid Region',
+                url:'/questions/?subject=Anatomy&lesson=Parotid Region'
+            }, 
+            {
+                title:'Submandibular Region',
+                url:'/questions/?subject=Anatomy&lesson=Submandibular Region'
+            }, 
+            {
+                title:'Infratemporal Fossa, Temporomandibular Joint and Pterygopalatine Fossa',
+                url:'/questions/?subject=Anatomy&lesson=Infratemporal Fossa, Temporomandibular Joint and Pterygopalatine Fossa'
+            }, 
+            {
+                title:'Thyroid and Parathyroid Glands, Trachea and Oesophagus',
+                url:'/questions/?subject=Anatomy&lesson=Thyroid and Parathyroid Glands, Trachea and Oesophagus'
+            }, 
+            {
+                title:'Pre and Paravertebral Regions and Root of the Neck',
+                url:'/questions/?subject=Anatomy&lesson=Pre and Paravertebral Regions and Root of the Neck'
+            }, 
+            {
+                title:'Oral Cavity',
+                url:'/questions/?subject=Anatomy&lesson=Oral Cavity'
+            }, 
+            {
+                title:'Larynx',
+                url:'/questions/?subject=Anatomy&lesson=Larynx'
+            }, 
+            {
+                title:'Blood supply and Lymphatic Drainage of Head and Neck',
+                url:'/questions/?subject=Anatomy&lesson=Blood supply and Lymphatic Drainage of Head and Neck'
+            }, 
+            {
+                title:'Nose and Paranasal Air Sinuses',
+                url:'/questions/?subject=Anatomy&lesson=Nose and Paranasal Air Sinuses'
+            }, 
+            {
+                title:'Ear',
+                url:'/questions/?subject=Anatomy&lesson=Ear'
+            }, 
+            {
+                title:'Orbit and Eyeball',
+                url:'/questions/?subject=Anatomy&lesson=Orbit and Eyeball'
+            }, 
+            {
+                title:'Cranial Cavity',
+                url:'/questions/?subject=Anatomy&lesson=Cranial Cavity'
+            }, 
+            {
+                title:'Neuroanatomy',
+                url:'/questions/?subject=Anatomy&lesson=Neuroanatomy'
+            }, 
+            {
+                title:'Histology',
+                url:'/questions/?subject=Anatomy&lesson=Histology'
+            }, 
+            {
+                title:'Embryology',
+                url:'/questions/?subject=Anatomy&lesson=Embryology'
+            }, 
+            {
+                title:'Genetics',
+                url:'/questions/?subject=Anatomy&lesson=Genetics'
+            }, 
+        ],
+        books:[
+            'Textbook Of Anatomy:Upper Limb and Thorax, Vol 1 by Vishram Singh',
+            'Textbook Of Anatomy:Head, Neck And Brain, Vol 3 by Vishram Singh',
+            'Textbook Of Anatomy:Abdomen And Lower Limb, Vol 2 by Vishram Singh',
+            'Textbook of Clinical Neuroanatomy by Vishram Singh',
+            'GENERAL ANATOMY Along with Systemic Anatomy Radiological Anatomy Medical Genetics by Vishram Singh'
+        ]
+    },
+    {
+        subject:'Psm',
+        submenu:[
+            {
+                title:'Concept of Health & Disease',
+                url:'/questions/?subject=Psm&lesson=Concept of Health & Disease'
+            }, 
+            
+            {
+                title:'Principles of Epidemiology and Epidemiologic Methods',
+                url:'/questions/?subject=Psm&lesson=Principles of Epidemiology and Epidemiologic Methods'
+            }, 
+            {
+                title:'Screening for Disease',
+                url:'/questions/?subject=Psm&lesson=Screening for Disease'
+            }, 
+            {
+                title:'Epidemiology of Communicable diseases',
+                url:'/questions/?subject=Psm&lesson=Epidemiology of Communicable diseases'
+            }, 
+            {
+                title:'Epidemiology of Chronic Non-Communicable Diseases',
+                url:'/questions/?subject=Psm&lesson=Epidemiology of Chronic Non-Communicable Diseases'
+            }, 
+            {
+                title:'Health Programmes in India',
+                url:'/questions/?subject=Psm&lesson=Health Programmes in India'
+            }, 
+            {
+                title:'Essential Medicines and Counterfeit Medicines',
+                url:'/questions/?subject=Psm&lesson=Essential Medicines and Counterfeit Medicines'
+            }, 
+            {
+                title:'Sustainable Development Goals',
+                url:'/questions/?subject=Psm&lesson=Sustainable Development Goals'
+            }, 
+            {
+                title:'Demography and Family Planning',
+                url:'/questions/?subject=Psm&lesson=Demography and Family Planning'
+            }, 
+            {
+                title:'Preventive Medicine in Obstetrics, Peadiatrics and Geriatrics',
+                url:'/questions/?subject=Psm&lesson=Preventive Medicine in Obstetrics, Peadiatrics and Geriatrics'
+            }, 
+            {
+                title:'Nutrition and Health',
+                url:'/questions/?subject=Psm&lesson=Nutrition and Health'
+            }, 
+            {
+                title:'Medicine and Social sciences',
+                url:'/questions/?subject=Psm&lesson=Medicine and Social sciences'
+            }, 
+            {
+                title:'Tribal Health of India',
+                url:'/questions/?subject=Psm&lesson=Tribal Health of India'
+            }, 
+            {
+                title:'Environment and Health',
+                url:'/questions/?subject=Psm&lesson=Environment and Health'
+            }, 
+            {
+                title:'Hospital Waste Management',
+                url:'/questions/?subject=Psm&lesson=Hospital Waste Management'
+            }, 
+            {
+                title:'Disaster Management',
+                url:'/questions/?subject=Psm&lesson=Disaster Management'
+            }, 
+            {
+                title:'Occupational Health',
+                url:'/questions/?subject=Psm&lesson=Occupational Health'
+            }, 
+            {
+                title:'Genetics and Health',
+                url:'/questions/?subject=Psm&lesson=Genetics and Health'
+            }, 
+            {
+                title:'Mental Health',
+                url:'/questions/?subject=Psm&lesson=Mental Health'
+            }, 
+            {
+                title:'Health Information and Basic Medical Statistics',
+                url:'/questions/?subject=Psm&lesson=Health Information and Basic Medical Statistics'
+            }, 
+            {
+                title:'Health Planning and Management',
+                url:'/questions/?subject=Psm&lesson=Health Planning and Management'
+            }, 
+            {
+                title:'Health care of the community',
+                url:'/questions/?subject=Psm&lesson=Health care of the community'
+            }, 
+            {
+                title:'Communication for Health Education',
+                url:'/questions/?subject=Psm&lesson=Communication for Health Education'
+            }, 
+            {
+                title:'International Health',
+                url:'/questions/?subject=Psm&lesson=International Health'
+            }
+        ],
+        books:[
+            'Parks Textbook of Preventive and Social Medicine 27th Edition 2023'
+        ]
+    },
+    {
+        subject:'Fmt',
+        submenu:[
+            {
+                title:'Legal Procedures',
+                url:'/questions/?subject=Fmt&lesson=Legal Procedures'
+            }, 
+            
+            {
+                title:'Medical Law and Ethics',
+                url:'/questions/?subject=Fmt&lesson=Medical Law and Ethics'
+            }, 
+            {
+                title:'Identification',
+                url:'/questions/?subject=Fmt&lesson=Identification'
+            }, 
+            {
+                title:'Medicolegal Autopsy',
+                url:'/questions/?subject=Fmt&lesson=Medicolegal Autopsy'
+            }, 
+            {
+                title:'Death and Its Causes',
+                url:'/questions/?subject=Fmt&lesson=Death and Its Causes'
+            }, 
+            {
+                title:'Mechanical Injuries',
+                url:'/questions/?subject=Fmt&lesson=Mechanical Injuries'
+            }, 
+            {
+                title:'Regional Injuries',
+                url:'/questions/?subject=Fmt&lesson=Regional Injuries'
+            }, 
+            {
+                title:'Medicolegal Aspects of Wounds',
+                url:'/questions/?subject=Fmt&lesson=Medicolegal Aspects of Wounds'
+            }, 
+            {
+                title:'Thermal Deaths',
+                url:'/questions/?subject=Fmt&lesson=Thermal Deaths'
+            }, 
+            {
+                title:'Impotence and Sterility',
+                url:'/questions/?subject=Fmt&lesson=Impotence and Sterility'
+            }, 
+            {
+                title:'Virginity, Pregnancy and Delivery',
+                url:'/questions/?subject=Fmt&lesson=Virginity, Pregnancy and Delivery'
+            }, 
+            {
+                title:'Abortion',
+                url:'/questions/?subject=Fmt&lesson=Abortion'
+            }, 
+            {
+                title:'Sexual Offences',
+                url:'/questions/?subject=Fmt&lesson=Sexual Offences'
+            }, 
+            {
+                title:'Infant Deaths',
+                url:'/questions/?subject=Fmt&lesson=Infant Deaths'
+            }, 
+            {
+                title:'Starvation',
+                url:'/questions/?subject=Fmt&lesson=Starvation'
+            }, 
+            {
+                title:'Mechanical Asphyxia',
+                url:'/questions/?subject=Fmt&lesson=Mechanical Asphyxia'
+            }, 
+            {
+                title:'Anaesthetic and Operative Deaths',
+                url:'/questions/?subject=Fmt&lesson=Anaesthetic and Operative Deaths'
+            }, 
+            {
+                title:'Artefacts',
+                url:'/questions/?subject=Fmt&lesson=Artefacts'
+            }, 
+            {
+                title:'Forensic Science Laboratory',
+                url:'/questions/?subject=Fmt&lesson=Forensic Science Laboratory'
+            }, 
+            {
+                title:'Forensic Psychiatry',
+                url:'/questions/?subject=Fmt&lesson=Forensic Psychiatry'
+            }, 
+            {
+                title:'Blood Stains',
+                url:'/questions/?subject=Fmt&lesson=Blood Stains'
+            }, 
+            {
+                title:'General Considerations',
+                url:'/questions/?subject=Fmt&lesson=General Considerations'
+            }, 
+            {
+                title:'Agricultural Poisons',
+                url:'/questions/?subject=Fmt&lesson=Agricultural Poisons'
+            }, 
+            {
+                title:'Corrosive Poisons',
+                url:'/questions/?subject=Fmt&lesson=Corrosive Poisons'
+            },
+            {
+                title:'Metallic Poisons',
+                url:'/questions/?subject=Fmt&lesson=Metallic Poisons'
+            },
+            {
+                title:'Inorganic Irritant Poisons',
+                url:'/questions/?subject=Fmt&lesson=Inorganic Irritant Poisons'
+            },
+            {
+                title:'Organic Irritant Poisons',
+                url:'/questions/?subject=Fmt&lesson=Organic Irritant Poisons'
+            },
+            {
+                title:'CNS Depressants',
+                url:'/questions/?subject=Fmt&lesson=CNS Depressants'
+            },
+            {
+                title:'Psychotropic Drugs',
+                url:'/questions/?subject=Fmt&lesson=Psychotropic Drugs'
+            },
+            {
+                title:'Deliriant Poisons',
+                url:'/questions/?subject=Fmt&lesson=Deliriant Poisons'
+            },
+            {
+                title:'Substance (Drug) Dependence and Abuse',
+                url:'/questions/?subject=Fmt&lesson=Substance (Drug) Dependence and Abuse'
+            },
+            {
+                title:'Spinal Poisons',
+                url:'/questions/?subject=Fmt&lesson=Spinal Poisons'
+            },
+            {
+                title:'Cardiac Poisons',
+                url:'/questions/?subject=Fmt&lesson=Cardiac Poisons'
+            },
+            {
+                title:'Asphyxiants',
+                url:'/questions/?subject=Fmt&lesson=Asphyxiants'
+            },
+            {
+                title:'Miscellaneous Poisons',
+                url:'/questions/?subject=Fmt&lesson=Miscellaneous Poisons'
+            },
+            {
+                title:'Food Poisoning',
+                url:'/questions/?subject=Fmt&lesson=Food Poisoning'
+            },
+        ],
+        books:[
+            'Textbook of Forensic Medicine & Toxicology 18th Edition by VV Pillay'
+        ]
     }
 ]
 export default subjects
 
 
-    
+
 
 
 
