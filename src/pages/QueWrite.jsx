@@ -19,17 +19,18 @@ const QueWrite = () => {
   const [subject, setSubject] = useState(state?.subject || subjects[0].subject);
   const [lesson, setLesson] = useState(state?.lesson || subjects[0].submenu[0].title);
   const [year, setYear] = useState(state?.years?.join() || "");
-  const [items, setItems] = useState(subjects[0].submenu);
-  const [bookItems, setBookItems]=useState(subjects[0].books);
+  const [items, setItems] = useState(state?subjects.filter((s)=>{return s.subject===state.subject})[0].submenu:subjects[0].submenu);
+  const [bookItems, setBookItems]=useState(state?subjects.filter((s)=>{return s.subject===state.subject})[0].books:subjects[0].books);
   const [book,setBook]=useState(bookItems[0]);
   const [page,setPage]=useState("");
   const [post,setPost]=useState(state);
   const [booklist,setBooklist]=useState(state?.pageNum.map((s)=>JSON.parse(s)) || []);
   const [addresses, setAddresses] = useState(state?.files || []);
   const navigate = useNavigate()
+
   useEffect(()=>{
-    console.log(lesson);
-  },[lesson])
+    console.log();
+  },[])
   function addBook(){
     setBooklist((prev)=>[...prev,{bookName:book,page:page}]);
     setBook(bookItems[0]);

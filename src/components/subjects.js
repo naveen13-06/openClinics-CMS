@@ -1762,7 +1762,7 @@ const subjects=[
             },
         ],
         books:[
-            'Textbook of Forensic Medicine & Toxicology 18th Edition by VV Pillay'
+            'The Essentials Of Forensic Medicine And Toxicology By K S Narayan Reddy, 35th edition'
         ]
     }
 ]
