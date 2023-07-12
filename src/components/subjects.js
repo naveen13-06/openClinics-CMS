@@ -120,192 +120,192 @@ const subjects=[
         subject:'Microbiology',
         submenu:[
             {
-                title:'Introduction and History',
-                url:'/questions/?subject=Microbiology&lesson=Introduction and History'
+                title:'Introduction and History-General Microbiology',
+                url:'/questions/?subject=Microbiology&lesson=Introduction and History-General Microbiology'
             }, 
             {
-                title:'Microscopy',
-                url:'/questions/?subject=Microbiology&lesson=Microscopy'
+                title:'Microscopy-General Microbiology',
+                url:'/questions/?subject=Microbiology&lesson=Microscopy-General Microbiology'
             }, 
             {
-                title:'General Virology',
-                url:'/questions/?subject=Microbiology&lesson=General Virology'
+                title:'General Virology-General Microbiology',
+                url:'/questions/?subject=Microbiology&lesson=General Virology-General Microbiology'
             }, 
             {
-                title:'General Parasitology',
-                url:'/questions/?subject=Microbiology&lesson=General Parasitology'
+                title:'General Parasitology-General Microbiology',
+                url:'/questions/?subject=Microbiology&lesson=General Parasitology-General Microbiology'
             }, 
             {
-                title:'General Mycology',
-                url:'/questions/?subject=Microbiology&lesson=General Mycology'
+                title:'General Mycology-General Microbiology',
+                url:'/questions/?subject=Microbiology&lesson=General Mycology-General Microbiology'
             }, 
             {
-                title:'Normal Human Microbiota',
-                url:'/questions/?subject=Microbiology&lesson=Normal Human Microbiota'
+                title:'Normal Human Microbiota-General Microbiology',
+                url:'/questions/?subject=Microbiology&lesson=Normal Human Microbiota-General Microbiology'
             }, 
             {
-                title:'Epidemiology of Infectious Diseases',
-                url:'/questions/?subject=Microbiology&lesson=Epidemiology of Infectious Diseases'
+                title:'Epidemiology of Infectious Diseases-General Microbiology',
+                url:'/questions/?subject=Microbiology&lesson=Epidemiology of Infectious Diseases-General Microbiology'
             }, 
             {
-                title:'Morphology and Physiology of Bacteria',
-                url:'/questions/?subject=Microbiology&lesson=Morphology and Physiology of Bacteria'
+                title:'Morphology and Physiology of Bacteria-General Microbiology',
+                url:'/questions/?subject=Microbiology&lesson=Morphology and Physiology of Bacteria-General Microbiology'
             }, 
             {
-                title:'Laboratory Diagnosis of Bacterial Infections',
-                url:'/questions/?subject=Microbiology&lesson=Laboratory Diagnosis of Bacterial Infections'
+                title:'Laboratory Diagnosis of Bacterial Infections-General Microbiology',
+                url:'/questions/?subject=Microbiology&lesson=Laboratory Diagnosis of Bacterial Infections-General Microbiology'
             }, 
             {
-                title:'Bacterial Genetics and  Antimicrobial resistance',
-                url:'/questions/?subject=Microbiology&lesson=Bacterial Genetics and  Antimicrobial resistance'
+                title:'Bacterial Genetics and  Antimicrobial resistance-General Microbiology',
+                url:'/questions/?subject=Microbiology&lesson=Bacterial Genetics and  Antimicrobial resistance-General Microbiology'
             }, 
             {
-                title:'Pathogenesis and Overview of Bacterial Infections',
-                url:'/questions/?subject=Microbiology&lesson=Pathogenesis and Overview of Bacterial Infections'
+                title:'Pathogenesis and Overview of Bacterial Infections-General Microbiology',
+                url:'/questions/?subject=Microbiology&lesson=Pathogenesis and Overview of Bacterial Infections-General Microbiology'
             }, 
             {
-                title:'Others',
-                url:'/questions/?subject=Microbiology&lesson=Others'
+                title:'Others-General Microbiology',
+                url:'/questions/?subject=Microbiology&lesson=Others-General Microbiology'
             }, 
             {
-                title:'Antigen, Antibody and Reactions',
-                url:'/questions/?subject=Microbiology&lesson=Antigen, Antibody and Reactions'
+                title:'Antigen, Antibody and Reactions-Immunology',
+                url:'/questions/?subject=Microbiology&lesson=Antigen, Antibody and Reactions-Immunology'
             }, 
             {
-                title:'Complement and Immune response',
-                url:'/questions/?subject=Microbiology&lesson=Complement and Immune response'
+                title:'Complement and Immune response-Immunology',
+                url:'/questions/?subject=Microbiology&lesson=Complement and Immune response-Immunology'
             }, 
             {
-                title:'Hypersensitivity',
-                url:'/questions/?subject=Microbiology&lesson=Hypersensitivity'
+                title:'Hypersensitivity-Immunology',
+                url:'/questions/?subject=Microbiology&lesson=Hypersensitivity-Immunology'
             }, 
             {
-                title:'Autoimmunity and Immunodeficiency Disorders',
-                url:'/questions/?subject=Microbiology&lesson=Autoimmunity and Immunodeficiency Disorders'
+                title:'Autoimmunity and Immunodeficiency Disorders-Immunology',
+                url:'/questions/?subject=Microbiology&lesson=Autoimmunity and Immunodeficiency Disorders-Immunology'
             }, 
             {
-                title:'Transplant, Cancer Immunology and Immunoprophylaxis',
-                url:'/questions/?subject=Microbiology&lesson=Transplant, Cancer Immunology and Immunoprophylaxis'
+                title:'Transplant, Cancer Immunology and Immunoprophylaxis-Immunology',
+                url:'/questions/?subject=Microbiology&lesson=Transplant, Cancer Immunology and Immunoprophylaxis-Immunology'
             }, 
             {
-                title:'Immunity',
-                url:'/questions/?subject=Microbiology&lesson=Immunity'
+                title:'Immunity-Immunology',
+                url:'/questions/?subject=Microbiology&lesson=Immunity-Immunology'
             }, 
             {
-                title:'Healthcare-associated Infections',
-                url:'/questions/?subject=Microbiology&lesson=Healthcare-associated Infections'
+                title:'Healthcare-associated Infections-Hospital Infection Control',
+                url:'/questions/?subject=Microbiology&lesson=Healthcare-associated Infections-Hospital Infection Control'
             }, 
             {
-                title:'Sterilization and Disinfection',
-                url:'/questions/?subject=Microbiology&lesson=Sterilization and Disinfection'
+                title:'Sterilization and Disinfection-Hospital Infection Control',
+                url:'/questions/?subject=Microbiology&lesson=Sterilization and Disinfection-Hospital Infection Control'
             }, 
             {
-                title:'Biomedical Waste Management',
-                url:'/questions/?subject=Microbiology&lesson=Biomedical Waste Management'
+                title:'Biomedical Waste Management-Hospital Infection Control',
+                url:'/questions/?subject=Microbiology&lesson=Biomedical Waste Management-Hospital Infection Control'
             }, 
             {
-                title:'Needle Stick Injury',
-                url:'/questions/?subject=Microbiology&lesson=Needle Stick Injury'
+                title:'Needle Stick Injury-Hospital Infection Control',
+                url:'/questions/?subject=Microbiology&lesson=Needle Stick Injury-Hospital Infection Control'
             }, 
             {
-                title:'Antimicrobial Stewardship',
-                url:'/questions/?subject=Microbiology&lesson=Antimicrobial Stewardship'
+                title:'Antimicrobial Stewardship-Hospital Infection Control',
+                url:'/questions/?subject=Microbiology&lesson=Antimicrobial Stewardship-Hospital Infection Control'
             }, 
             {
-                title:'Environmental Surveillance',
-                url:'/questions/?subject=Microbiology&lesson=Environmental Surveillance'
+                title:'Environmental Surveillance-Hospital Infection Control',
+                url:'/questions/?subject=Microbiology&lesson=Environmental Surveillance-Hospital Infection Control'
             }, 
             {
-                title:'Bloodstream-Bacterial Infections',
-                url:'/questions/?subject=Microbiology&lesson=Bloodstream-Bacterial Infections'
+                title:'Bacterial Infections-Bloodstream and Cardiovascular System Infections',
+                url:'/questions/?subject=Microbiology&lesson=Bacterial Infections-Bloodstream and Cardiovascular System Infections'
             }, 
             {
-                title:'Bloodstream-Fungal Infections',
-                url:'/questions/?subject=Microbiology&lesson=Bloodstream-Fungal Infections'
+                title:'Fungal Infections-Bloodstream and Cardiovascular System Infections',
+                url:'/questions/?subject=Microbiology&lesson=Fungal Infections-Bloodstream and Cardiovascular System Infections'
             }, 
             {
-                title:'Bloodstream-Parasitic Infections',
-                url:'/questions/?subject=Microbiology&lesson=Bloodstream-Parasitic Infections'
+                title:'Parasitic Infections-Bloodstream and Cardiovascular System Infections',
+                url:'/questions/?subject=Microbiology&lesson=Parasitic Infections-Bloodstream and Cardiovascular System Infections'
             }, 
             {
-                title:'Bloodstream-Viral Infections',
-                url:'/questions/?subject=Microbiology&lesson=Bloodstream-Viral Infections'
+                title:'Viral Infections-Bloodstream and Cardiovascular System Infections',
+                url:'/questions/?subject=Microbiology&lesson=Viral Infections-Bloodstream and Cardiovascular System Infections'
             }, 
             {
-                title:'Gastrointestinal-Bacterial Infections',
-                url:'/questions/?subject=Microbiology&lesson=Gastrointestinal-Bacterial Infections'
+                title:'Bacterial Infections-Gastrointestinal Infections',
+                url:'/questions/?subject=Microbiology&lesson=Bacterial Infections-Gastrointestinal Infections'
             }, 
             {
-                title:'Gastrointestinal-Parasitic Infections',
-                url:'/questions/?subject=Microbiology&lesson=Gastrointestinal-Parasitic Infections'
+                title:'Parasitic Infections-Gastrointestinal Infections',
+                url:'/questions/?subject=Microbiology&lesson=Parasitic Infections-Gastrointestinal Infections'
             }, 
             {
-                title:'Gastrointestinal-Viral Infections',
-                url:'/questions/?subject=Microbiology&lesson=Gastrointestinal-Viral Infections'
+                title:'Viral Infections-Gastrointestinal Infections',
+                url:'/questions/?subject=Microbiology&lesson=Viral Infections-Gastrointestinal Infections'
             }, 
             {
-                title:'Hepatobiliary-Parasitic Infections',
-                url:'/questions/?subject=Microbiology&lesson=Hepatobiliary-Parasitic Infections'
+                title:'Parasitic Infections-Hepatobiliary System Infections',
+                url:'/questions/?subject=Microbiology&lesson=Parasitic Infections-Hepatobiliary System Infections'
             }, 
             {
-                title:'Hepatobiliary-Viral Infections',
-                url:'/questions/?subject=Microbiology&lesson=Hepatobiliary-Viral Infections'
+                title:'Viral Infections-Hepatobiliary System Infections',
+                url:'/questions/?subject=Microbiology&lesson=Viral Infections-Hepatobiliary System Infections'
             }, 
             {
-                title:'Musculoskeletal-Bacterial Infections',
-                url:'/questions/?subject=Microbiology&lesson=Musculoskeletal-Bacterial Infections'
+                title:'Bacterial Infections-Skin, Soft Tissue and Musculoskeletal System Infections',
+                url:'/questions/?subject=Microbiology&lesson=Bacterial Infections-Skin, Soft Tissue and Musculoskeletal System Infections'
             }, 
             {
-                title:'Musculoskeletal-Fungal Infections',
-                url:'/questions/?subject=Microbiology&lesson=Musculoskeletal-Fungal Infections'
+                title:'Fungal Infections-Skin, Soft Tissue and Musculoskeletal System Infections',
+                url:'/questions/?subject=Microbiology&lesson=Fungal Infections-Skin, Soft Tissue and Musculoskeletal System Infections'
             }, 
             {
-                title:'Musculoskeletal-Parasitic Infections',
-                url:'/questions/?subject=Microbiology&lesson=Musculoskeletal-Parasitic Infections'
+                title:'Parasitic Infections-Skin, Soft Tissue and Musculoskeletal System Infections',
+                url:'/questions/?subject=Microbiology&lesson=Parasitic Infections-Skin, Soft Tissue and Musculoskeletal System Infections'
             }, 
             {
-                title:'Musculoskeletal-Viral Infections',
-                url:'/questions/?subject=Microbiology&lesson=Musculoskeletal-Viral Infections'
+                title:'Viral Infections-Skin, Soft Tissue and Musculoskeletal System Infections',
+                url:'/questions/?subject=Microbiology&lesson=Viral Infections-Skin, Soft Tissue and Musculoskeletal System Infections'
             }, 
             {
-                title:'Respiratory Tract-Bacterial Infections',
-                url:'/questions/?subject=Microbiology&lesson=Respiratory Tract-Bacterial Infections'
+                title:'Bacterial Infections-Respiratory Tract Infections',
+                url:'/questions/?subject=Microbiology&lesson=Bacterial Infections-Respiratory Tract Infections'
             }, 
             {
-                title:'Respiratory Tract-Fungal Infections',
-                url:'/questions/?subject=Microbiology&lesson=Respiratory Tract-Fungal Infections'
+                title:'Fungal Infections-Respiratory Tract Infections',
+                url:'/questions/?subject=Microbiology&lesson=Fungal Infections-Respiratory Tract Infections'
             }, 
             {
-                title:'Respiratory Tract-Viral Infections',
-                url:'/questions/?subject=Microbiology&lesson=Respiratory Tract-Viral Infections'
+                title:'Viral Infections-Respiratory Tract Infections',
+                url:'/questions/?subject=Microbiology&lesson=Viral Infections-Respiratory Tract Infections'
             }, 
             {
-                title:'CNS-Bacterial Infections',
-                url:'/questions/?subject=Microbiology&lesson=CNS-Bacterial Infections'
+                title:'Bacterial Infections-Central Nervous System Infections',
+                url:'/questions/?subject=Microbiology&lesson=Bacterial Infections-Central Nervous System Infections'
             }, 
             {
-                title:'CNS-Parasitic Infections',
-                url:'/questions/?subject=Microbiology&lesson=CNS-Parasitic Infections'
+                title:'Parasitic Infections-Central Nervous System Infections',
+                url:'/questions/?subject=Microbiology&lesson=Parasitic Infections-Central Nervous System Infections'
             }, 
             {
-                title:'CNS-Viral Infections',
-                url:'/questions/?subject=Microbiology&lesson=CNS-Viral Infections'
+                title:'Viral Infections-Central Nervous System Infections',
+                url:'/questions/?subject=Microbiology&lesson=Viral Infections-Central Nervous System Infections'
             }, 
             {
-                title:'Urogenital-Bacterial Infections',
-                url:'/questions/?subject=Microbiology&lesson=Urogenital-Bacterial Infections'
+                title:'Bacterial Infections-Urogenital Tract Infections',
+                url:'/questions/?subject=Microbiology&lesson=Bacterial Infections-Urogenital Tract Infections'
             }, 
             {
-                title:'Urogenital-Fungal Infections',
-                url:'/questions/?subject=Microbiology&lesson=Urogenital-Fungal Infections'
+                title:'Fungal Infections-Urogenital Tract Infections',
+                url:'/questions/?subject=Microbiology&lesson=Fungal Infections-Urogenital Tract Infections'
             }, 
             {
-                title:'Urogenital-Parasitic Infections',
-                url:'/questions/?subject=Microbiology&lesson=Urogenital-Parasitic Infections'
+                title:'Parasitic Infections-Urogenital Tract Infections',
+                url:'/questions/?subject=Microbiology&lesson=Parasitic Infections-Urogenital Tract Infections'
             }, 
             {
-                title:'Urogenital-Viral Infections',
-                url:'/questions/?subject=Microbiology&lesson=Urogenital-Viral Infections'
+                title:'Viral Infections-Urogenital Tract Infections',
+                url:'/questions/?subject=Microbiology&lesson=Viral Infections-Urogenital Tract Infections'
             }, 
             {
                 title:'Miscellaneous Infective Syndromes',
@@ -1319,12 +1319,12 @@ const subjects=[
                 url:'/questions/?subject=Anatomy&lesson=Hand'
             }, 
             {
-                title:'Upper limb-Joints',
-                url:'/questions/?subject=Anatomy&lesson=Upper limb-Joints'
+                title:'Joints-Upper limb',
+                url:'/questions/?subject=Anatomy&lesson=Joints-Upper limb'
             }, 
             {
-                title:'Upper limb-Neurovasculature',
-                url:'/questions/?subject=Anatomy&lesson=Upper limb-Neurovasculature'
+                title:'Neurovasculature-Upper limb',
+                url:'/questions/?subject=Anatomy&lesson=Neurovasculature-Upper limb'
             }, 
             {
                 title:'Thigh and Gluteal region',
@@ -1339,12 +1339,12 @@ const subjects=[
                 url:'/questions/?subject=Anatomy&lesson=Foot'
             }, 
             {
-                title:'Lower limb-Joints',
-                url:'/questions/?subject=Anatomy&lesson=Lower limb-Joints'
+                title:'Joints-Lower limb',
+                url:'/questions/?subject=Anatomy&lesson=Joints-Lower limb'
             }, 
             {
-                title:'Lower limb-Neurovasculature',
-                url:'/questions/?subject=Anatomy&lesson=Lower limb-Neurovasculature'
+                title:'Neurovasculature-Lower limb',
+                url:'/questions/?subject=Anatomy&lesson=Neurovasculature-Lower limb'
             }, 
             {
                 title:'Bones, Joints and Intercostal space of Thorax',
@@ -1762,7 +1762,7 @@ const subjects=[
             },
         ],
         books:[
-            'The Essentials Of Forensic Medicine And Toxicology By K S Narayan Reddy, 35th edition'
+            'The Essentials Of Forensic Medicine And Toxicology By K S Narayan Reddy, 35th edition'
         ]
     }
 ]
