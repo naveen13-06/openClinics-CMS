@@ -22,11 +22,12 @@ $lightGreen: #0175c2;
   .container {
     width: 1024px;
 
-    .link {
+    .link ,.link1 {
       text-decoration: none;
       padding: 20px;
       color: inherit;
     }
+   
     //LOGIN & REGISTER
 
     .auth {
@@ -282,8 +283,12 @@ $lightGreen: #0175c2;
                 background-color: $lightGreen;
                 color: black;
               }
+              
             }
           }
+          .content:hover > .link1:hover{
+            background-color: #90EE90;
+        }
         }
       }
     }
