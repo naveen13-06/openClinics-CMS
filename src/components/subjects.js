@@ -667,7 +667,7 @@ const subjects=[
         ]
     },
     {
-        subject:'Ent',
+        subject:'ENT',
         submenu:[
             {
                 title:'Anatomy of Ear',
@@ -1508,7 +1508,7 @@ const subjects=[
         ]
     },
     {
-        subject:'Psm',
+        subject:'PSM',
         submenu:[
             {
                 title:'Concept of Health & Disease',
@@ -1613,7 +1613,7 @@ const subjects=[
         ]
     },
     {
-        subject:'Fmt',
+        subject:'FMT',
         submenu:[
             {
                 title:'Legal Procedures',
