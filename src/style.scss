@@ -22,7 +22,7 @@ $lightGreen: #0175c2;
   .container {
     width: 1024px;
 
-    .link ,.link1 {
+    .link , .link1 {
       text-decoration: none;
       padding: 20px;
       color: inherit;
@@ -253,7 +253,7 @@ $lightGreen: #0175c2;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            .link {
+            .link , .link1 {
               padding: 7px;
             }
 
@@ -287,7 +287,7 @@ $lightGreen: #0175c2;
             }
           }
           .content:hover > .link1:hover{
-            background-color: #90EE90;
+            border: 3px solid rgb(0, 72, 0);
         }
         }
       }
