@@ -110,6 +110,15 @@ const menuItems = [
             url: '/?domain=surgery&type=peripheral arterial disease',
         }
       ],
-    }
+    },
+    {
+      title: 'Opthalmology',
+        submenu: [
+          {
+            title: 'cataract',
+            url: '/?domain=og&type=cata',
+          },
+        ],
+      }
 ];
 export default menuItems;

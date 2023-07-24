@@ -22,6 +22,7 @@ const Write = () => {
   // console.log(state?.subcat);
   const med = ["abdomen", "cns", "cvs", "renal", "rs"];
   const og = ["obstetric examination", "gynaecology"];
+  const opthalmology = ["cataract"];
   const pediatrics = ["abdomen", "development","cns", "cvs", "anthropometry", "rs", "newborn", "headtofoot"];
   const surgery = ["breast", "varicose vein", "swelling", "ulcer", "abdomen", "hernia", "peripheral arterial disease","thyroid"];
   const [items, setItems] = useState(med);
@@ -30,6 +31,7 @@ const Write = () => {
     else if (cat === "og") setItems(og);
     else if (cat === "pediatrics") setItems(pediatrics);
     else if (cat === "surgery") setItems(surgery);
+    else if (cat === "opthalmology") setItems(opthalmology);
   }, [cat])
   useEffect(() => {
     if (!state?.subcat) setSubcat(items[0]);
