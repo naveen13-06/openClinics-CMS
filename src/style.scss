@@ -227,7 +227,12 @@ $lightGreen: #0175c2;
     }
 
     //HOME
-
+.post .link1{
+  border: 3px solid rgb(168, 252, 193);
+}
+.post .link{
+  border: 3px solid rgb(152, 189, 245);
+}
     .home {
       .posts {
         margin-top: 20px;
@@ -245,7 +250,7 @@ $lightGreen: #0175c2;
           // gap: 10px;
           margin: auto;
           width: 60%;
-          border: 3px solid rgb(152, 189, 245);
+          // border: 3px solid rgb(152, 189, 245);
 
           // padding: 10px;
           .content {
@@ -286,9 +291,6 @@ $lightGreen: #0175c2;
               
             }
           }
-          .content:hover > .link1:hover{
-            border: 3px solid rgb(0, 72, 0);
-        }
         }
       }
     }
