@@ -24,10 +24,6 @@ let api = {
     return api.sdk;
   },
 
-  //   createAccount: ({username,password}) => {
-  //     return api.provider().account.create("unique()", email, password, name);
-  //   },
-
   getAccount: () => {
     //console.log("getAccount");
     let account = api.provider().account;
@@ -114,6 +110,33 @@ let api = {
       .provider()
       .database.getDocument(databaseId, collectionID, did);
   },
+  getData: async (databaseId, collectionID) => {
+    const ans=[];
+    var res;
+
+    res= await api
+    .provider()
+    .database.listDocuments(databaseId, collectionID, [
+      Query.limit(100),
+    ]);
+    // console.log(res.documents);
+    ans.push(...res.documents);
+    
+    while (res.documents.length>0) {
+      const lastId=res.documents[res.documents.length-1].$id;
+      res = await api
+        .provider()
+        .database.listDocuments(databaseId, collectionID, [
+          Query.limit(100),
+          Query.cursorAfter(lastId),
+        ]);
+      // console.log(res.documents);
+      ans.push(...res.documents);
+    }
+    // console.log(ans);
+    return ans;
+
+  },
   deleteQuestion: async (databaseId, collectionID, did) => {
     return await api
       .provider()
@@ -190,31 +213,6 @@ let api = {
               prev = tmp;
               k++;
             }
-            // console.log(prevCards);
-            // let before=prevCards.filter((card)=>{
-            //   const d=JSON.parse(card);
-            //   return d.cn>=data.cn;
-            // });
-
-            // before.map((card)=>{
-            //   const d=JSON.parse(card);
-            //   d.cn++;
-            //   return JSON.stringify(d);
-            // });
-
-            // prevCards=prevCards.filter((card)=>{
-            //   const d=JSON.parse(card);
-            //   return d.cn<cn;
-            // });
-            // prevCards.map((card)=>{
-            //   const d=JSON.parse(card);
-            //   if(d.cn<cn){
-            //     before.push(card);
-            //   }
-            // });
-            // prevCards=before;
-            // console.log(prevCards);
-            // return null;
           }
         }
       }

@@ -16,6 +16,7 @@ import { useContext, useEffect } from "react";
 import { AuthContext } from "./context/authContext";
 import QueDisplay from "./pages/QueDisplay";
 import Delete from "./pages/Delete";
+import Data from "./pages/Data";
 
 const Layout = () => {
   return (
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
       {
         path: "/delete-account",
         element:<Delete />
+      },
+      {
+        path: "/data",
+        element:<Data />
       }
     ],
   },
